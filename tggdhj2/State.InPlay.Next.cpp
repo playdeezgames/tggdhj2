@@ -7,7 +7,6 @@ namespace state::in_play::Next
 	{
 		game::AutoSave();
 		application::UIState::Write(::UIState::IN_PLAY_NODE);
-		return;
 	}
 
 	void Start()
