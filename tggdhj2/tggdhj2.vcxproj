@@ -180,6 +180,7 @@
     <ClCompile Include="Game.Avatar.Position.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game.Heading.cpp" />
+    <ClCompile Include="Game.Items.cpp" />
     <ClCompile Include="Game.Nodes.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="State.ConfirmAbandon.cpp" />
@@ -251,6 +252,9 @@
     <ClInclude Include="Game.Direction.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Game.Heading.h" />
+    <ClInclude Include="Game.Item.h" />
+    <ClInclude Include="Game.ItemDescriptor.h" />
+    <ClInclude Include="Game.Items.h" />
     <ClInclude Include="Game.Nodes.h" />
     <ClInclude Include="Maze.Door.h" />
     <ClInclude Include="MouseButton.h" />
