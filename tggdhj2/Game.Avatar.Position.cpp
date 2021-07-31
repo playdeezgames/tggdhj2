@@ -1,6 +1,7 @@
 #include "Common.RNG.h"
 #include "Data.Game.Avatar.Position.h"
 #include "Data.Game.Node.h"
+#include "Data.Game.Node.Path.h"
 #include "Game.Avatar.Position.h"
 namespace game::avatar::Position
 {
@@ -27,4 +28,18 @@ namespace game::avatar::Position
 		}
 		Write(*iter);
 	}
+
+	void Move(const game::Direction& direction)
+	{
+		auto avatarPosition = Read();
+		if (avatarPosition)
+		{
+			auto nodePathTo = data::game::node::Path::Read(avatarPosition.value(), (int)direction);
+			if (nodePathTo)
+			{
+				Write(nodePathTo.value());
+			}
+		}
+	}
+
 }

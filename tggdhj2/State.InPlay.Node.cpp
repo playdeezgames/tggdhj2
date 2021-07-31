@@ -7,7 +7,9 @@
 #include "Common.Audio.h"
 #include "Common.Utility.h"
 #include "Data.Stores.h"
+#include <format>
 #include "Game.Audio.Mux.h"
+#include "Game.Avatar.Position.h"
 #include "Visuals.Areas.h"
 #include "Visuals.Menus.h"
 #include "Visuals.Texts.h"
@@ -15,6 +17,8 @@ namespace state::in_play::Node
 {
 	const std::string LAYOUT_NAME = "State.InPlay.Node";
 	const std::string MENU_ID = "Node";
+	const std::string TEXT_CAPTION = "Caption";
+	const std::string FORMAT_CAPTION = "==NODE #{}==";
 
 	enum class NodeMenuItem
 	{
@@ -26,22 +30,26 @@ namespace state::in_play::Node
 
 	static void OnNorth()
 	{
-		return;
+		game::avatar::Position::Move(game::Direction::NORTH);
+		application::UIState::Write(::UIState::IN_PLAY_NEXT);
 	}
 
 	static void OnEast()
 	{
-		return;
+		game::avatar::Position::Move(game::Direction::EAST);
+		application::UIState::Write(::UIState::IN_PLAY_NEXT);
 	}
 
 	static void OnSouth()
 	{
-		return;
+		game::avatar::Position::Move(game::Direction::SOUTH);
+		application::UIState::Write(::UIState::IN_PLAY_NEXT);
 	}
 
 	static void OnWest()
 	{
-		return;
+		game::avatar::Position::Move(game::Direction::WEST);
+		application::UIState::Write(::UIState::IN_PLAY_NEXT);
 	}
 
 	const std::map<NodeMenuItem, std::function<void()>> activators =
@@ -66,9 +74,15 @@ namespace state::in_play::Node
 		{::Command::RED, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) }
 	};
 
+	static void RefreshAvatarPosition()
+	{
+		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CAPTION, std::format(FORMAT_CAPTION, game::avatar::Position::Read().value()));
+	}
+
 	static void OnEnter()
 	{
 		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
+		RefreshAvatarPosition();
 	}
 
 	void Start()
