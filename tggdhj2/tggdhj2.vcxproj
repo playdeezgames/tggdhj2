@@ -172,6 +172,7 @@
     <ClCompile Include="Data.Game.Avatar.Position.cpp" />
     <ClCompile Include="Data.Game.Common.cpp" />
     <ClCompile Include="Data.Game.Node.cpp" />
+    <ClCompile Include="Data.Game.Node.Path.cpp" />
     <ClCompile Include="Data.SQLite.Stores.cpp" />
     <ClCompile Include="Data.Stores.cpp" />
     <ClCompile Include="Game.Achievements.cpp" />
@@ -239,6 +240,7 @@
     <ClInclude Include="Data.Game.Avatar.Position.h" />
     <ClInclude Include="Data.Game.Common.h" />
     <ClInclude Include="Data.Game.Node.h" />
+    <ClInclude Include="Data.Game.Node.Path.h" />
     <ClInclude Include="Data.SQLite.Stores.h" />
     <ClInclude Include="Data.Stores.h" />
     <ClInclude Include="Game.Achievements.h" />
