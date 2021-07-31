@@ -13,21 +13,5 @@
     "Sublayout.Modded":"config/ui/layouts/Sublayout.Modded.json",
     "State.Tip":"config/ui/layouts/State.Tip.json",
     "State.Statistics":"config/ui/layouts/State.Statistics.json",
-    "Sublayout.UIHamburger":"config/ui/layouts/Sublayout.UIHamburger.json",
-    "State.InPlay.AtSea":"config/ui/layouts/State.InPlay.AtSea.json",
-    "State.InPlay.ChangeSpeed":"config/ui/layouts/State.InPlay.ChangeSpeed.json",
-    "State.InPlay.Docked":"config/ui/layouts/State.InPlay.Docked.json",
-    "State.InPlay.Win":"config/ui/layouts/State.InPlay.Win.json",
-    "State.InPlay.Lose":"config/ui/layouts/State.InPlay.Lose.json",
-    "State.InPlay.HeadFor":"config/ui/layouts/State.InPlay.HeadFor.json",
-    "State.InPlay.IslandJobs":"config/ui/layouts/State.InPlay.IslandJobs.json",
-    "State.InPlay.ConfirmReplaceJob": "config/ui/layouts/State.InPlay.ConfirmReplaceJob.json",
-    "State.InPlay.ConfirmAbandonJob": "config/ui/layouts/State.InPlay.ConfirmAbandonJob.json",
-    "State.InPlay.AvatarJob": "config/ui/layouts/State.InPlay.AvatarJob.json",
-    "State.InPlay.IslandTrade": "config/ui/layouts/State.InPlay.IslandTrade.json",
-    "State.InPlay.IslandBuy": "config/ui/layouts/State.InPlay.IslandBuy.json",
-    "State.InPlay.IslandSell": "config/ui/layouts/State.InPlay.IslandSell.json",
-    "State.InPlay.Cargo": "config/ui/layouts/State.InPlay.Cargo.json",
-    "State.InPlay.ShipStatus": "config/ui/layouts/State.InPlay.ShipStatus.json",
-    "State.InPlay.CompletedJob": "config/ui/layouts/State.InPlay.CompletedJob.json"
+    "Sublayout.UIHamburger":"config/ui/layouts/Sublayout.UIHamburger.json"
 }

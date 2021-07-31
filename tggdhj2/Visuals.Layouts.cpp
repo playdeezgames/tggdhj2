@@ -57,7 +57,6 @@ namespace visuals::Layouts
 		{visuals::data::Type::MENU, visuals::Menu::Internalize},
 		{visuals::data::Type::LAYOUT, visuals::Sublayout::Internalize},
 		{visuals::data::Type::AREA, visuals::Areas::Internalize},
-		{visuals::data::Type::WORLD_MAP, visuals::WorldMap::Internalize},
 		{visuals::data::Type::SPRITE_GRID, visuals::SpriteGrid::Internalize}
 	};
 

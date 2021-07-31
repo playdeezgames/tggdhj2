@@ -7,7 +7,6 @@ namespace visuals::data::Types
 	const std::string LAYOUT = "Layout";
 	const std::string MENU = "Menu";
 	const std::string TEXT = "Text";
-	const std::string WORLD_MAP = "WorldMap";
 	const std::string AREA = "Area";
 	const std::string SPRITE_GRID = "SpriteGrid";
 }
@@ -20,7 +19,6 @@ namespace visuals::data
 		{ visuals::data::Types::LAYOUT, Type::LAYOUT },
 		{ visuals::data::Types::MENU, Type::MENU },
 		{ visuals::data::Types::TEXT, Type::TEXT },
-		{ visuals::data::Types::WORLD_MAP, Type::WORLD_MAP },
 		{ visuals::data::Types::AREA, Type::AREA },
 		{ visuals::data::Types::SPRITE_GRID, Type::SPRITE_GRID }
 	};
