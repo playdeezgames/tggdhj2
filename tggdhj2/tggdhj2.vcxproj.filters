@@ -169,6 +169,12 @@
     <ClCompile Include="Visuals.Texts.cpp">
       <Filter>Source\Visuals\Controls</Filter>
     </ClCompile>
+    <ClCompile Include="Data.Game.Avatar.Position.cpp">
+      <Filter>Source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Avatar.Position.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
@@ -332,6 +338,12 @@
     </ClInclude>
     <ClInclude Include="UIState.h">
       <Filter>Headers\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.Game.Avatar.Position.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Avatar.Position.h">
+      <Filter>Headers\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

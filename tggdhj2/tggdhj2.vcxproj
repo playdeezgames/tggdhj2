@@ -169,11 +169,13 @@
     <ClCompile Include="Application.OnEnter.cpp" />
     <ClCompile Include="Common.Application.Internals.cpp" />
     <ClCompile Include="Common.Data.cpp" />
+    <ClCompile Include="Data.Game.Avatar.Position.cpp" />
     <ClCompile Include="Data.Game.Common.cpp" />
     <ClCompile Include="Data.SQLite.Stores.cpp" />
     <ClCompile Include="Data.Stores.cpp" />
     <ClCompile Include="Game.Achievements.cpp" />
     <ClCompile Include="Game.Audio.Mux.cpp" />
+    <ClCompile Include="Game.Avatar.Position.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game.Heading.cpp" />
     <ClCompile Include="sqlite3.c" />
@@ -232,11 +234,13 @@
     <ClInclude Include="Common.Data.h" />
     <ClInclude Include="Common.Deck.h" />
     <ClInclude Include="Common.Data.Properties.h" />
+    <ClInclude Include="Data.Game.Avatar.Position.h" />
     <ClInclude Include="Data.Game.Common.h" />
     <ClInclude Include="Data.SQLite.Stores.h" />
     <ClInclude Include="Data.Stores.h" />
     <ClInclude Include="Game.Achievements.h" />
     <ClInclude Include="Game.Audio.Mux.h" />
+    <ClInclude Include="Game.Avatar.Position.h" />
     <ClInclude Include="Game.Difficulty.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Game.Heading.h" />
