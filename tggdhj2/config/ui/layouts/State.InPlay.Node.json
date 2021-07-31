@@ -110,6 +110,18 @@
         }
     },
     {
+        "type":"SpriteGrid",
+        "sprite-grid-id":"Floor",
+        "x":0,
+        "y":96,
+        "cell-width":16,
+        "cell-height":16,
+        "drop-shadow": true,
+        "drop-shadow-color": "Black",
+        "drop-shadow-x": 2,
+        "drop-shadow-y": 2
+    },
+    {
         "type": "Layout",
         "name": "Sublayout.Modded"
     },

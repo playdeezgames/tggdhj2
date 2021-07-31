@@ -10,8 +10,12 @@
 #include <format>
 #include "Game.Audio.Mux.h"
 #include "Game.Avatar.Position.h"
+#include "Game.Items.h"
+#include "Game.Nodes.Items.h"
 #include "Visuals.Areas.h"
+#include "Visuals.Data.Colors.h"
 #include "Visuals.Menus.h"
+#include "Visuals.SpriteGrid.h"
 #include "Visuals.Texts.h"
 namespace state::in_play::Node
 {
@@ -19,6 +23,9 @@ namespace state::in_play::Node
 	const std::string MENU_ID = "Node";
 	const std::string TEXT_CAPTION = "Caption";
 	const std::string FORMAT_CAPTION = "==NODE #{}==";
+	const std::string SPRITE_GRID_FLOOR = "Floor";
+	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
+	const std::string FONT_DEFAULT = "default";
 
 	enum class NodeMenuItem
 	{
@@ -79,10 +86,24 @@ namespace state::in_play::Node
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CAPTION, std::format(FORMAT_CAPTION, game::avatar::Position::Read().value()));
 	}
 
+	static void RefreshFloorContents()
+	{
+		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID_FLOOR);
+		auto floorItems = game::nodes::Items::Read(game::avatar::Position::Read().value());
+		int row = 0;
+		for (auto& floorItem : floorItems)
+		{
+			auto& descriptor = game::Items::Read(floorItem.first);
+			visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, row }, FONT_DEFAULT, std::format(FORMAT_FLOOR_ITEM_COUNT, descriptor.name, floorItem.second), visuals::data::Colors::NORMAL);
+			++row;
+		}
+	}
+
 	static void OnEnter()
 	{
 		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
 		RefreshAvatarPosition();
+		RefreshFloorContents();
 	}
 
 	void Start()

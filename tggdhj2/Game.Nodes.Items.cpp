@@ -11,6 +11,21 @@ namespace game::nodes::Items
 		return data::game::node::Item::Read(positionId, (int)item);
 	}
 
+	std::map<Item, size_t> Read(int positionId)
+	{
+		std::map<Item, size_t> results;
+		for (auto item : game::Items::All())
+		{
+			auto itemCount = Read(positionId, item);
+			if (itemCount > 0)
+			{
+				results[item] = itemCount;
+			}
+		}
+		return results;
+	}
+
+
 	void Add(int positionId, const Item& item, size_t count)
 	{
 		data::game::node::Item::Write(positionId, (int)item, count + Read(positionId, item));
