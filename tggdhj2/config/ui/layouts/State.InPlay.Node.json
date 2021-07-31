@@ -110,23 +110,10 @@
         }
     },
     {
-        "type": "Text",
-        "font": "default",
-        "color": "LightBlue",
-        "text": "Floor:",
-        "x": 8,
-        "y": 96,
-        "horizontal-alignment": 1,
-        "drop-shadow": true,
-        "drop-shadow-color": "Black",
-        "drop-shadow-x": 2,
-        "drop-shadow-y": 2
-    },
-    {
         "type":"SpriteGrid",
         "sprite-grid-id":"Floor",
         "x":8,
-        "y":112,
+        "y":12,
         "cell-width":16,
         "cell-height":16,
         "drop-shadow": true,
@@ -138,7 +125,7 @@
         "type":"Area",
         "area-id":"Floor",
         "x":8,
-        "y":112,
+        "y":108,
         "width":240,
         "height":240
     },

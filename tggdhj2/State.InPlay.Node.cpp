@@ -27,6 +27,7 @@ namespace state::in_play::Node
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 	const std::string FONT_DEFAULT = "default";
 	const std::string AREA_FLOOR = "Floor";
+	const int FLOOR_ROW_OFFSET = 6;
 
 	enum class NodeMenuItem
 	{
@@ -98,13 +99,18 @@ namespace state::in_play::Node
 	static void RefreshFloorContents()
 	{
 		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID_FLOOR);
+		visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, FLOOR_ROW_OFFSET-1 }, FONT_DEFAULT, "Floor:", visuals::data::Colors::HIGHLIGHT);
 		int row = 0;
 		for (auto& floorItem : floorItems)
 		{
 			auto& descriptor = game::Items::Read(floorItem.first);
 			std::string color = (hoverFloorItem.has_value() && hoverFloorItem.value() == row) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
-			visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, row }, FONT_DEFAULT, std::format(FORMAT_FLOOR_ITEM_COUNT, descriptor.name, floorItem.second), color);
+			visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, row+ FLOOR_ROW_OFFSET }, FONT_DEFAULT, std::format(FORMAT_FLOOR_ITEM_COUNT, descriptor.name, floorItem.second), color);
 			++row;
+		}
+		if (row == 0)
+		{
+			visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, row+ FLOOR_ROW_OFFSET }, FONT_DEFAULT, "(nothing)", visuals::data::Colors::NORMAL);
 		}
 	}
 
