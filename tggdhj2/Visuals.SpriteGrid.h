@@ -7,4 +7,5 @@ namespace visuals::SpriteGrid
 	void WriteText(const std::string&, const std::string&, const common::XY<int>&, const std::string&, const std::string&, const std::string&);
 	void ClearCell(const std::string&, const std::string&, const common::XY<int>&);
 	void Clear(const std::string&, const std::string&);
+	int GetCellHeight(const std::string&, const std::string&);
 }

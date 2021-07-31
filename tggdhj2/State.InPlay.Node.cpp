@@ -26,6 +26,7 @@ namespace state::in_play::Node
 	const std::string SPRITE_GRID_FLOOR = "Floor";
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 	const std::string FONT_DEFAULT = "default";
+	const std::string AREA_FLOOR = "Floor";
 
 	enum class NodeMenuItem
 	{
@@ -86,15 +87,23 @@ namespace state::in_play::Node
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CAPTION, std::format(FORMAT_CAPTION, game::avatar::Position::Read().value()));
 	}
 
+	static std::map<game::Item, size_t> floorItems;
+	static std::optional<int> hoverFloorItem = std::nullopt;
+
+	static void UpdateFloorContents()
+	{
+		floorItems = game::nodes::Items::Read(game::avatar::Position::Read().value());
+	}
+
 	static void RefreshFloorContents()
 	{
 		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID_FLOOR);
-		auto floorItems = game::nodes::Items::Read(game::avatar::Position::Read().value());
 		int row = 0;
 		for (auto& floorItem : floorItems)
 		{
 			auto& descriptor = game::Items::Read(floorItem.first);
-			visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, row }, FONT_DEFAULT, std::format(FORMAT_FLOOR_ITEM_COUNT, descriptor.name, floorItem.second), visuals::data::Colors::NORMAL);
+			std::string color = (hoverFloorItem.has_value() && hoverFloorItem.value() == row) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
+			visuals::SpriteGrid::WriteText(LAYOUT_NAME, SPRITE_GRID_FLOOR, { 0, row }, FONT_DEFAULT, std::format(FORMAT_FLOOR_ITEM_COUNT, descriptor.name, floorItem.second), color);
 			++row;
 		}
 	}
@@ -102,7 +111,33 @@ namespace state::in_play::Node
 	static void OnEnter()
 	{
 		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
+		UpdateFloorContents();
 		RefreshAvatarPosition();
+		RefreshFloorContents();
+	}
+
+	static void HandleFloorMouseMotion(const common::XY<int>& xy)
+	{
+		hoverFloorItem = std::nullopt;
+		int row = xy.GetY() / visuals::SpriteGrid::GetCellHeight(LAYOUT_NAME, SPRITE_GRID_FLOOR);
+		if (row < floorItems.size())
+		{
+			hoverFloorItem = row;
+		}
+		RefreshFloorContents();
+	}
+
+	static void OnMouseMotionInArea(const std::string& areaName, const common::XY<int>& xy)
+	{
+		if (areaName == AREA_FLOOR)
+		{
+			HandleFloorMouseMotion(xy);
+		}
+	}
+
+	static void OnMouseMotionOutsideArea(const common::XY<int>& xy)
+	{
+		hoverFloorItem = std::nullopt;
 		RefreshFloorContents();
 	}
 
@@ -110,6 +145,7 @@ namespace state::in_play::Node
 	{
 		::application::OnEnter::AddHandler(::UIState::IN_PLAY_NODE, OnEnter);
 		::application::MouseMotion::AddHandler(::UIState::IN_PLAY_NODE, visuals::Areas::HandleMenuMouseMotion(LAYOUT_NAME));
+		::application::MouseMotion::AddHandler(::UIState::IN_PLAY_NODE, visuals::Areas::HandleMouseMotion(LAYOUT_NAME, OnMouseMotionInArea, OnMouseMotionOutsideArea));
 		::application::MouseButtonUp::AddHandler(::UIState::IN_PLAY_NODE, visuals::Areas::HandleMenuMouseButtonUp(LAYOUT_NAME, ActivateItem));
 		::application::Command::SetHandlers(::UIState::IN_PLAY_NODE, commandHandlers);
 		::application::Renderer::SetRenderLayout(::UIState::IN_PLAY_NODE, LAYOUT_NAME);

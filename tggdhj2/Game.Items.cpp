@@ -9,7 +9,7 @@ namespace game::Items
 			{
 				"Trousers",	
 				{
-					{game::Difficulty::EASY, 1},
+					{game::Difficulty::EASY, 10},
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}
@@ -21,7 +21,7 @@ namespace game::Items
 			{
 				"Codpiece",
 				{
-					{game::Difficulty::EASY, 1},
+					{game::Difficulty::EASY, 10},
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}
@@ -33,7 +33,7 @@ namespace game::Items
 			{
 				"Waterskin",
 				{
-					{game::Difficulty::EASY, 1},
+					{game::Difficulty::EASY, 10},
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}

@@ -126,4 +126,11 @@ namespace visuals::SpriteGrid
 		auto& spriteGrid = spriteGrids[gridIndex];
 		spriteGrid.cells.clear();
 	}
+
+	int GetCellHeight(const std::string& layoutName, const std::string& spriteGridId)
+	{
+		size_t gridIndex = spriteGridTable[layoutName][spriteGridId];
+		auto& spriteGrid = spriteGrids[gridIndex];
+		return spriteGrid.cellSize.GetY();
+	}
 }
