@@ -48,7 +48,7 @@ namespace data::sqlite::Stores
 		sqlite3_exec(connection.get(), query.c_str(), ExecutionCallback, &results, &errmsg);
 		if (errmsg)
 		{
-			std::string errorMessage = errmsg;
+			std::string errorMessage(errmsg);
 			sqlite3_free(errmsg);
 			throw errorMessage;
 		}

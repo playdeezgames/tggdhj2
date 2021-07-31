@@ -172,6 +172,7 @@
     <ClCompile Include="Data.Game.Avatar.Position.cpp" />
     <ClCompile Include="Data.Game.Common.cpp" />
     <ClCompile Include="Data.Game.Node.cpp" />
+    <ClCompile Include="Data.Game.Node.Item.cpp" />
     <ClCompile Include="Data.Game.Node.Path.cpp" />
     <ClCompile Include="Data.SQLite.Stores.cpp" />
     <ClCompile Include="Data.Stores.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="Game.Heading.cpp" />
     <ClCompile Include="Game.Items.cpp" />
     <ClCompile Include="Game.Nodes.cpp" />
+    <ClCompile Include="Game.Nodes.Items.cpp" />
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="State.ConfirmAbandon.cpp" />
     <ClCompile Include="State.ConfirmOverwrite.cpp" />
@@ -242,6 +244,7 @@
     <ClInclude Include="Data.Game.Avatar.Position.h" />
     <ClInclude Include="Data.Game.Common.h" />
     <ClInclude Include="Data.Game.Node.h" />
+    <ClInclude Include="Data.Game.Node.Item.h" />
     <ClInclude Include="Data.Game.Node.Path.h" />
     <ClInclude Include="Data.SQLite.Stores.h" />
     <ClInclude Include="Data.Stores.h" />
@@ -256,6 +259,7 @@
     <ClInclude Include="Game.ItemDescriptor.h" />
     <ClInclude Include="Game.Items.h" />
     <ClInclude Include="Game.Nodes.h" />
+    <ClInclude Include="Game.Nodes.Items.h" />
     <ClInclude Include="Maze.Door.h" />
     <ClInclude Include="MouseButton.h" />
     <ClInclude Include="sqlite3.h" />

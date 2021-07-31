@@ -4,9 +4,42 @@ namespace game::Items
 {
 	const std::map<Item, ItemDescriptor> descriptors =
 	{
-		{Item::TROUSERS, {"Trousers"}},
-		{Item::CODPIECE, {"Codpiece"}},
-		{Item::WATERSKIN, {"Waterskin"}}
+		{
+			Item::TROUSERS, 
+			{
+				"Trousers",	
+				{
+					{game::Difficulty::EASY, 10},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				}
+			}
+		},
+		{
+			Item::CODPIECE, 
+			{
+				"Codpiece",
+				{
+					{game::Difficulty::EASY, 10},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				}
+			}
+		},
+		{
+			Item::WATERSKIN, 
+			{
+				"Waterskin",
+				{
+					{game::Difficulty::EASY, 10},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				}
+			}
+		}
 	};
 	static std::list<Item> allItems;
 

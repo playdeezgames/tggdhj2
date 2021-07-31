@@ -3,12 +3,14 @@
 #include "Data.SQLite.Stores.h"
 #include "Game.Nodes.h"
 #include "Game.Avatar.Position.h"
+#include "Game.Nodes.Items.h"
 namespace game
 {
 	void Reset(const Difficulty& difficulty)
 	{
 		data::sqlite::Stores::Bounce(data::sqlite::Store::IN_MEMORY);
 		game::Nodes::Reset(difficulty);
+		game::nodes::Items::Reset(difficulty);
 		game::avatar::Position::Reset(difficulty);
 	}
 
