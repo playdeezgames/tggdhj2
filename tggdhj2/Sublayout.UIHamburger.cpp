@@ -14,6 +14,7 @@ namespace sublayout::UIHamburger
 
 	const std::vector<::UIState> states =
 	{
+		::UIState::IN_PLAY_NODE
 	};
 
 	static void OnMouseMotionInArea(const std::string& area, const common::XY<int>&)

@@ -6,7 +6,7 @@ namespace state::in_play::Next
 	static void OnEnter()
 	{
 		game::AutoSave();
-		application::UIState::Write(::UIState::MAIN_MENU);
+		application::UIState::Write(::UIState::IN_PLAY_NODE);
 		return;
 	}
 

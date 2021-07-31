@@ -97,6 +97,7 @@ namespace common::Application
 		state::ConfirmAbandon::Start,
 		state::ConfirmOverwrite::Start,
 		state::in_play::Next::Start,
+		state::in_play::Node::Start,
 		sublayout::UIHamburger::Start,
 		Options::Initialize,
 		visuals::Layouts::Start
