@@ -247,6 +247,7 @@
     <ClInclude Include="Game.Audio.Mux.h" />
     <ClInclude Include="Game.Avatar.Position.h" />
     <ClInclude Include="Game.Difficulty.h" />
+    <ClInclude Include="Game.Direction.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Game.Heading.h" />
     <ClInclude Include="Game.Nodes.h" />

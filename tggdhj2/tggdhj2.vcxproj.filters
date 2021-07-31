@@ -363,6 +363,9 @@
     <ClInclude Include="Data.Game.Node.Path.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
+    <ClInclude Include="Game.Direction.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
