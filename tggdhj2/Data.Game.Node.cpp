@@ -9,6 +9,7 @@ namespace data::game::Node
 	const std::string QUERY_ITEM = "SELECT [PositionId] FROM [Nodes] WHERE [PositionId]={};";
 	const std::string QUERY_ALL = "SELECT [PositionId] FROM [Nodes];";
 	const std::string REPLACE_ITEM = "REPLACE INTO [Nodes]([PositionId]) VALUES({});";
+	const std::string DELETE_ALL = "DELETE FROM [Nodes];";
 
 	static void AutoCreateNodesTable()
 	{
@@ -38,4 +39,11 @@ namespace data::game::Node
 		}
 		return results;
 	}
+
+	void Clear()
+	{
+		AutoCreateNodesTable();
+		data::game::Common::Execute(DELETE_ALL);
+	}
+
 }

@@ -5,4 +5,5 @@ namespace data::game::Node
 	bool Read(int);
 	void Write(int);
 	std::list<int> All();
+	void Clear();
 }
