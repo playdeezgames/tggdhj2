@@ -175,6 +175,9 @@
     <ClCompile Include="Game.Avatar.Position.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Data.Game.Node.cpp">
+      <Filter>Source\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
@@ -344,6 +347,9 @@
     </ClInclude>
     <ClInclude Include="Game.Avatar.Position.h">
       <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.Game.Node.h">
+      <Filter>Headers\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
