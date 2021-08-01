@@ -70,16 +70,7 @@
     <ClCompile Include="Data.Stores.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
-    <ClCompile Include="Game.Achievements.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.Audio.Mux.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.Heading.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Visuals.Data.Types.cpp">
@@ -172,14 +163,8 @@
     <ClCompile Include="Data.Game.Avatar.Position.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
-    <ClCompile Include="Game.Avatar.Position.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Data.Game.Node.cpp">
       <Filter>Source\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.Nodes.cpp">
-      <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="Data.Game.Node.Path.cpp">
       <Filter>Source\Data</Filter>
@@ -190,26 +175,47 @@
     <ClCompile Include="Game.Items.cpp">
       <Filter>Source\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game.Nodes.Items.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Data.Game.Node.Item.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
-    <ClCompile Include="Game.Avatar.Visits.cpp">
-      <Filter>Source\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Data.Game.Avatar.Visit.cpp">
       <Filter>Source\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.Avatar.cpp">
-      <Filter>Source\Game</Filter>
     </ClCompile>
     <ClCompile Include="State.InPlay.Win.cpp">
       <Filter>Source\States\InPlay</Filter>
     </ClCompile>
     <ClCompile Include="Game.Statistics.cpp">
       <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Achievements.cpp">
+      <Filter>Source\Game\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Audio.Mux.cpp">
+      <Filter>Source\Game\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Heading.cpp">
+      <Filter>Source\Game\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Avatar.cpp">
+      <Filter>Source\Game\Avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Avatar.Position.cpp">
+      <Filter>Source\Game\Avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Avatar.Visits.cpp">
+      <Filter>Source\Game\Avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Nodes.cpp">
+      <Filter>Source\Game\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Nodes.Items.cpp">
+      <Filter>Source\Game\Nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Avatar.Statistics.cpp">
+      <Filter>Source\Game\Avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.Game.Avatar.Statistic.cpp">
+      <Filter>Source\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -291,19 +297,7 @@
     <ClInclude Include="Data.Stores.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
-    <ClInclude Include="Game.Achievements.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Audio.Mux.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Difficulty.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Heading.h">
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Maze.Direction.h">
@@ -378,38 +372,14 @@
     <ClInclude Include="Data.Game.Avatar.Position.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
-    <ClInclude Include="Game.Avatar.Position.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Data.Game.Node.h">
       <Filter>Headers\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Nodes.h">
-      <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Data.Game.Node.Path.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
-    <ClInclude Include="Game.Direction.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Item.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.ItemDescriptor.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Items.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Nodes.Items.h">
-      <Filter>Headers\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Data.Game.Node.Item.h">
       <Filter>Headers\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.Avatar.Visits.h">
-      <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Data.Game.Avatar.Visit.h">
       <Filter>Headers\Data</Filter>
@@ -418,16 +388,58 @@
       <Filter>Headers\Visuals\Data</Filter>
     </ClInclude>
     <ClInclude Include="Game.Avatar.h">
-      <Filter>Headers\Game</Filter>
+      <Filter>Headers\Game\Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Avatar.Position.h">
+      <Filter>Headers\Game\Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Avatar.Visits.h">
+      <Filter>Headers\Game\Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Item.h">
+      <Filter>Headers\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Items.h">
+      <Filter>Headers\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.ItemDescriptor.h">
+      <Filter>Headers\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Nodes.h">
+      <Filter>Headers\Game\Nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Nodes.Items.h">
+      <Filter>Headers\Game\Nodes</Filter>
     </ClInclude>
     <ClInclude Include="Game.Statistic.h">
-      <Filter>Headers\Game</Filter>
+      <Filter>Headers\Game\Statistics</Filter>
     </ClInclude>
     <ClInclude Include="Game.StatisticDescriptor.h">
-      <Filter>Headers\Game</Filter>
+      <Filter>Headers\Game\Statistics</Filter>
     </ClInclude>
     <ClInclude Include="Game.Statistics.h">
-      <Filter>Headers\Game</Filter>
+      <Filter>Headers\Game\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Achievements.h">
+      <Filter>Headers\Game\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Audio.Mux.h">
+      <Filter>Headers\Game\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Difficulty.h">
+      <Filter>Headers\Game\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Direction.h">
+      <Filter>Headers\Game\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Heading.h">
+      <Filter>Headers\Game\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Avatar.Statistics.h">
+      <Filter>Headers\Game\Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.Game.Avatar.Statistic.h">
+      <Filter>Headers\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -499,6 +511,30 @@
     </Filter>
     <Filter Include="Headers\Visuals\Data">
       <UniqueIdentifier>{0958faf4-be43-43ea-b295-d6e169db1f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\Avatar">
+      <UniqueIdentifier>{6eeb3cad-3e88-407d-8280-b4b848bba808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\Items">
+      <UniqueIdentifier>{ab841725-bc75-4b43-b593-1f87069f7b5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\Nodes">
+      <UniqueIdentifier>{29a8b5f1-03c7-4fd0-b2d3-7ca2915e2fbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\Statistics">
+      <UniqueIdentifier>{a09277a3-cf7a-4e4c-a16e-7031cf87fffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\Utility">
+      <UniqueIdentifier>{22645e6f-ea7e-417b-b816-cae2836fda81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Utility">
+      <UniqueIdentifier>{0d885744-4db5-4a80-aaa3-a9bba2274744}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Avatar">
+      <UniqueIdentifier>{98272d9b-9c60-47e4-a526-dfc2ef21dedc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Nodes">
+      <UniqueIdentifier>{46bed035-7304-4e20-9e24-8ee680da0cd9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
