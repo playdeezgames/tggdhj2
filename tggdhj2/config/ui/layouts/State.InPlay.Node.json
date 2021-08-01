@@ -7,109 +7,6 @@
         "y": 0
     },
     {
-        "type": "Text",
-        "font": "default",
-        "color": "LightGreen",
-        "text-id": "Caption",
-        "text": "==NODE #??==",
-        "x": 320,
-        "y": 8,
-        "horizontal-alignment": 0,
-        "drop-shadow": true,
-        "drop-shadow-color": "Black",
-        "drop-shadow-x": 2,
-        "drop-shadow-y": 2
-    },
-    {
-        "type": "Menu",
-        "menu-id": "Node",
-        "index": 0,
-        "font": "default",
-        "colors": {
-            "active": "Cyan",
-            "inactive": "Gray"
-        },
-        "horizontal-alignment": 0,
-        "drop-shadow": true,
-        "drop-shadow-color": "Black",
-        "drop-shadow-x": 2,
-        "drop-shadow-y": 2,
-        "menu-items": [
-            {
-                "text": "North",
-                "menu-item-id": "North",
-                "x": 320,
-                "y": 32
-            },
-            {
-                "text": "East",
-                "menu-item-id": "East",
-                "x": 320,
-                "y": 48
-            },
-            {
-                "text": "South",
-                "menu-item-id": "South",
-                "x": 320,
-                "y": 64
-            },
-            {
-                "text": "West",
-                "menu-item-id": "West",
-                "x": 320,
-                "y": 80
-            }
-        ]
-    },
-    {
-        "type":"Area",
-        "area-id":"Start",
-        "x":240,
-        "y":32,
-        "width":160,
-        "height":16,
-        "menu":{
-            "menu-id":"Node",
-            "menu-item-id":"North"
-        }
-    },
-    {
-        "type":"Area",
-        "area-id":"About",
-        "x":240,
-        "y":48,
-        "width":160,
-        "height":16,
-        "menu":{
-            "menu-id":"Node",
-            "menu-item-id":"East"
-        }
-    },
-    {
-        "type":"Area",
-        "area-id":"Options",
-        "x":240,
-        "y":64,
-        "width":160,
-        "height":16,
-        "menu":{
-            "menu-id":"Node",
-            "menu-item-id":"South"
-        }
-    },
-    {
-        "type":"Area",
-        "area-id":"Quit",
-        "x":240,
-        "y":80,
-        "width":160,
-        "height":16,
-        "menu":{
-            "menu-id":"Node",
-            "menu-item-id":"West"
-        }
-    },
-    {
         "type":"SpriteGrid",
         "sprite-grid-id":"Floor",
         "x":8,
@@ -125,9 +22,17 @@
         "type":"Area",
         "area-id":"Floor",
         "x":8,
-        "y":108,
+        "y":124,
         "width":240,
-        "height":240
+        "height":224
+    },
+    {
+        "type":"Area",
+        "area-id":"Exits",
+        "x":8,
+        "y":28,
+        "width":128,
+        "height":64
     },
     {
         "type": "Layout",

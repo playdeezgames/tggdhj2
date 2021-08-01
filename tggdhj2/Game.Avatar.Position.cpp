@@ -3,6 +3,7 @@
 #include "Data.Game.Node.h"
 #include "Data.Game.Node.Path.h"
 #include "Game.Avatar.Position.h"
+#include "Game.Avatar.Visits.h"
 namespace game::avatar::Position
 {
 	std::optional<int> Read()
@@ -12,6 +13,7 @@ namespace game::avatar::Position
 
 	void Write(int positionId)
 	{
+		game::avatar::Visits::Write(positionId);
 		data::game::avatar::Position::Write(positionId);
 	}
 

@@ -179,6 +179,7 @@
     <ClCompile Include="Data.Stores.cpp" />
     <ClCompile Include="Game.Achievements.cpp" />
     <ClCompile Include="Game.Audio.Mux.cpp" />
+    <ClCompile Include="Game.Avatar.cpp" />
     <ClCompile Include="Game.Avatar.Position.cpp" />
     <ClCompile Include="Game.Avatar.Visits.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -253,6 +254,7 @@
     <ClInclude Include="Data.Stores.h" />
     <ClInclude Include="Game.Achievements.h" />
     <ClInclude Include="Game.Audio.Mux.h" />
+    <ClInclude Include="Game.Avatar.h" />
     <ClInclude Include="Game.Avatar.Position.h" />
     <ClInclude Include="Game.Avatar.Visits.h" />
     <ClInclude Include="Game.Difficulty.h" />
@@ -272,6 +274,7 @@
     <ClInclude Include="Visuals.Areas.h" />
     <ClInclude Include="Visuals.CardSprites.h" />
     <ClInclude Include="Visuals.Data.Colors.h" />
+    <ClInclude Include="Visuals.HorizontalAlignment.h" />
     <ClInclude Include="Visuals.Images.h" />
     <ClInclude Include="Visuals.Menus.h" />
     <ClInclude Include="Visuals.Data.Properties.h" />

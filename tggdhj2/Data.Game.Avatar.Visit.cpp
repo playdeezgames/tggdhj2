@@ -7,7 +7,7 @@ namespace data::game::avatar::Visit
 	const std::string FIELD_POSITION_ID = "PositionId";
 	const std::string CREATE_TABLE = "CREATE TABLE IF NOT EXISTS [AvatarVisits]([PositionId] INT NOT NULL UNIQUE);";
 	const std::string QUERY_ITEM = "SELECT [PositionId] FROM [AvatarVisits] WHERE [PositionId]={};";
-	const std::string REPLACE_ITEM = "REPLACE INTO [AvatarVisits]([PositionId]) VALES({});";
+	const std::string REPLACE_ITEM = "REPLACE INTO [AvatarVisits]([PositionId]) VALUES({});";
 	const std::string QUERY_ALL = "SELECT [PositionId] FROM [AvatarVisits];";
 	const std::string DELETE_ALL = "DELETE FROM [AvatarVisits];";
 

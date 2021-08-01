@@ -1,4 +1,5 @@
 #include "Data.SQLite.Stores.h"
+#include <format>
 #include <memory>
 #include "sqlite3.h"
 namespace data::sqlite::Stores
@@ -48,7 +49,7 @@ namespace data::sqlite::Stores
 		sqlite3_exec(connection.get(), query.c_str(), ExecutionCallback, &results, &errmsg);
 		if (errmsg)
 		{
-			std::string errorMessage(errmsg);
+			std::string errorMessage = std::format("SQL Error: '{}'", errmsg);
 			sqlite3_free(errmsg);
 			throw errorMessage;
 		}

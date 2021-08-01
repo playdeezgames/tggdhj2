@@ -104,7 +104,7 @@ namespace visuals::SpriteGrid
 		}
 	}
 
-	void WriteText(const std::string& layoutName, const std::string& spriteGridId, const common::XY<int>& location, const std::string& fontName, const std::string& text, const std::string& color)
+	static void DoWriteText(const std::string& layoutName, const std::string& spriteGridId, const common::XY<int>& location, const std::string& fontName, const std::string& text, const std::string& color)
 	{
 		auto currentLocation = location;
 		size_t gridIndex = spriteGridTable[layoutName][spriteGridId];
@@ -118,6 +118,21 @@ namespace visuals::SpriteGrid
 			};
 			currentLocation = currentLocation + common::XY<int>(1, 0);
 		}
+	}
+
+	void WriteText(const std::string& layoutName, const std::string& spriteGridId, const common::XY<int>& location, const std::string& fontName, const std::string& text, const std::string& color, const visuals::HorizontalAlignment& alignment)
+	{
+		auto x = location.GetX();
+		switch (alignment)
+		{
+		case visuals::HorizontalAlignment::CENTER:
+			x -= text.size() / 2;
+			break;
+		case visuals::HorizontalAlignment::RIGHT:
+			x -= text.size();
+			break;
+		}
+		DoWriteText(layoutName, spriteGridId, { x,location.GetY() }, fontName, text, color);
 	}
 
 	void Clear(const std::string& layoutName, const std::string& spriteGridId)
