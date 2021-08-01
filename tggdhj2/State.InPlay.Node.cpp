@@ -292,8 +292,33 @@ namespace state::in_play::Node
 		return false;
 	}
 
+	static void DispatchAction(const ActionType& action)
+	{
+		switch (action)
+		{
+		case ActionType::INVENTORY:
+			application::UIState::Write(::UIState::IN_PLAY_INVENTORY);
+			break;
+		}
+	}
+
 	static bool HandleActionsMouseButtonUp()
 	{
+		if (hoverAction)
+		{
+			auto index = hoverAction.value();
+			auto iter = actionLabels.begin();
+			while (index > 0 && iter != actionLabels.end())
+			{
+				++iter;
+				--index;
+			}
+			if (iter != actionLabels.end())
+			{
+				DispatchAction(iter->first);
+				return true;
+			}
+		}
 		return false;
 	}
 

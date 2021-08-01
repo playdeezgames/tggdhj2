@@ -32,8 +32,8 @@ namespace state::in_play::Inventory
 
 	const std::map<::Command, std::function<void()>> commandHandlers =
 	{
-		{::Command::BACK, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) },
-		{::Command::RED, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) }
+		{::Command::BACK, ::application::UIState::GoTo(::UIState::IN_PLAY_NODE) },
+		{::Command::RED, ::application::UIState::GoTo(::UIState::IN_PLAY_NODE) }
 	};
 
 	//static std::map<game::Item, size_t> floorItems;
