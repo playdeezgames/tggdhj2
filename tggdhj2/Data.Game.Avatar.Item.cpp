@@ -4,7 +4,7 @@
 #include <format>
 namespace data::game::avatar::Item
 {
-	const std::string FIEND_ITEM_COUNT = "ItemCount";
+	const std::string FIELD_ITEM_COUNT = "ItemCount";
 	const std::string CREATE_TABLE = "CREATE TABLE IF NOT EXISTS [AvatarItems]([AvatarId] INT NOT NULL,[ItemId] INT NOT NULL,[ItemCount] INT NOT NULL,UNIQUE([AvatarId],[ItemId]));";
 	const std::string QUERY_ITEM = "SELECT [ItemCount] FROM [AvatarItems] WHERE [AvatarId]={} AND [ItemId]={};";
 	const std::string REPLACE_ITEM = "REPLACE INTO [AvatarItems]([AvatarId],[ItemId],[ItemCount]) VALUES({},{},{});";
@@ -20,6 +20,10 @@ namespace data::game::avatar::Item
 	{
 		AutoCreateAvatarItemsTable();
 		auto records = Common::Execute(std::format(QUERY_ITEM, Common::AVATAR_ID, itemId));
+		if (!records.empty())
+		{
+			return (size_t)common::Data::StringToInt(records.front()[FIELD_ITEM_COUNT]);
+		}
 		return 0;
 	}
 

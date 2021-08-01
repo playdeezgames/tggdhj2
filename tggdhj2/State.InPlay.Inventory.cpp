@@ -29,6 +29,8 @@ namespace state::in_play::Inventory
 	const std::string FONT_DEFAULT = "default";
 	const size_t GRID_COLUMNS = 39;
 	const size_t GRID_ROWS = 21;
+	const int INVENTORY_ROW_OFFSET = 1;
+	const std::string FORMAT_INVENTORY_ITEM_COUNT = "{} (x{})";
 
 	const std::map<::Command, std::function<void()>> commandHandlers =
 	{
@@ -36,62 +38,62 @@ namespace state::in_play::Inventory
 		{::Command::RED, ::application::UIState::GoTo(::UIState::IN_PLAY_NODE) }
 	};
 
-	//static std::map<game::Item, size_t> floorItems;
-	//static std::optional<int> hoverFloorItem = std::nullopt;
+	static std::map<game::Item, size_t> inventoryItems;
+	static std::optional<int> hoverInventoryItem = std::nullopt;
 
-	//static void UpdateFloorContents()
-	//{
-	//	floorItems = game::nodes::Items::Read(game::avatar::Position::Read().value());
-	//}
+	static void UpdateInventoryContents()
+	{
+		inventoryItems = game::avatar::Items::ReadAll();
+	}
 
-	//static void RefreshFloorContents()
-	//{
-	//	visuals::SpriteGrid::WriteText(
-	//		LAYOUT_NAME,
-	//		SPRITE_GRID,
-	//		{ 0, FLOOR_ROW_OFFSET - 1 },
-	//		FONT_DEFAULT,
-	//		"Floor:",
-	//		visuals::data::Colors::SUBHEADING,
-	//		visuals::HorizontalAlignment::LEFT);
-	//	int row = 0;
-	//	for (auto& floorItem : floorItems)
-	//	{
-	//		auto& descriptor = game::Items::Read(floorItem.first);
-	//		std::string color = (hoverFloorItem.has_value() && hoverFloorItem.value() == row) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
-	//		visuals::SpriteGrid::WriteText(
-	//			LAYOUT_NAME,
-	//			SPRITE_GRID,
-	//			{ 0, row + FLOOR_ROW_OFFSET },
-	//			FONT_DEFAULT,
-	//			std::format(FORMAT_FLOOR_ITEM_COUNT, descriptor.name, floorItem.second),
-	//			color,
-	//			visuals::HorizontalAlignment::LEFT);
-	//		++row;
-	//	}
-	//	if (row == 0)
-	//	{
-	//		visuals::SpriteGrid::WriteText(
-	//			LAYOUT_NAME,
-	//			SPRITE_GRID,
-	//			{ 0, row + FLOOR_ROW_OFFSET },
-	//			FONT_DEFAULT,
-	//			"(nothing)",
-	//			visuals::data::Colors::DISABLED,
-	//			visuals::HorizontalAlignment::LEFT);
-	//	}
-	//}
+	static void RefreshInventoryContents()
+	{
+		visuals::SpriteGrid::WriteText(
+			LAYOUT_NAME,
+			SPRITE_GRID,
+			{ 0, INVENTORY_ROW_OFFSET - 1 },
+			FONT_DEFAULT,
+			"Inventory:",
+			visuals::data::Colors::SUBHEADING,
+			visuals::HorizontalAlignment::LEFT);
+		int row = 0;
+		for (auto& inventoryItem : inventoryItems)
+		{
+			auto& descriptor = game::Items::Read(inventoryItem.first);
+			std::string color = (hoverInventoryItem.has_value() && hoverInventoryItem.value() == row) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
+			visuals::SpriteGrid::WriteText(
+				LAYOUT_NAME,
+				SPRITE_GRID,
+				{ 0, row + INVENTORY_ROW_OFFSET },
+				FONT_DEFAULT,
+				std::format(FORMAT_INVENTORY_ITEM_COUNT, descriptor.name, inventoryItem.second),
+				color,
+				visuals::HorizontalAlignment::LEFT);
+			++row;
+		}
+		if (row == 0)
+		{
+			visuals::SpriteGrid::WriteText(
+				LAYOUT_NAME,
+				SPRITE_GRID,
+				{ 0, row + INVENTORY_ROW_OFFSET },
+				FONT_DEFAULT,
+				"(nothing)",
+				visuals::data::Colors::DISABLED,
+				visuals::HorizontalAlignment::LEFT);
+		}
+	}
 
 	static void Refresh()
 	{
 		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID);//TODO: put in a clear row?
-		//RefreshFloorContents();
+		RefreshInventoryContents();
 	}
 
 	static void OnEnter()
 	{
 		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
-		//UpdateFloorContents();
+		UpdateInventoryContents();
 		Refresh();
 	}
 
