@@ -3,6 +3,7 @@
 #include "Data.Game.Node.h"
 #include "Data.Game.Node.Path.h"
 #include "Game.Avatar.Position.h"
+#include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
 namespace game::avatar::Position
 {
@@ -31,11 +32,15 @@ namespace game::avatar::Position
 		Write(*iter);
 	}
 
+	const double HYDRATION_DELTA = -1.0;
+
 	void Move(const game::Direction& direction)
 	{
 		auto avatarPosition = Read();
 		if (avatarPosition)
 		{
+			auto overage = game::avatar::Statistics::ChangeHydration(HYDRATION_DELTA);
+			game::avatar::Statistics::ChangeHealth(overage);
 			auto nodePathTo = data::game::node::Path::Read(avatarPosition.value(), (int)direction);
 			if (nodePathTo)
 			{

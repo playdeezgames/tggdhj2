@@ -11,6 +11,7 @@
 #include "Game.Audio.Mux.h"
 #include "Game.Avatar.h"
 #include "Game.Avatar.Position.h"
+#include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
 #include "Game.Items.h"
 #include "Game.Nodes.h"
@@ -24,6 +25,8 @@ namespace state::in_play::Node
 {
 	const std::string LAYOUT_NAME = "State.InPlay.Node";
 	const std::string FORMAT_CAPTION = "NODE #{}:";
+	const std::string FORMAT_HEALTH = "Health {:.0f}";
+	const std::string FORMAT_HYDRATION = "H2O {:.0f}";
 	const std::string SPRITE_GRID_FLOOR = "Floor";
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 	const std::string FONT_DEFAULT = "default";
@@ -31,6 +34,7 @@ namespace state::in_play::Node
 	const std::string AREA_EXITS = "Exits";
 	const int FLOOR_ROW_OFFSET = 7;
 	const int EXITS_ROW_OFFSET = 1;
+	const int STATISTICS_ROW_OFFSET = 1;
 	const size_t GRID_COLUMNS = 39;
 	const size_t GRID_ROWS = 21;
 
@@ -76,7 +80,7 @@ namespace state::in_play::Node
 			SPRITE_GRID_FLOOR, 
 			{ GRID_COLUMNS, 0 }, 
 			FONT_DEFAULT, 
-			std::format("{:.1f}%",game::Avatar::GetScore()), 
+			std::format("Discovered {:.0f}%",game::Avatar::GetScore()), 
 			visuals::data::Colors::HIGHLIGHT, 
 			visuals::HorizontalAlignment::RIGHT);
 	}
@@ -139,6 +143,26 @@ namespace state::in_play::Node
 		}
 	}
 
+	static void RefreshStatistics()
+	{
+		visuals::SpriteGrid::WriteText(
+			LAYOUT_NAME,
+			SPRITE_GRID_FLOOR,
+			{ GRID_COLUMNS, STATISTICS_ROW_OFFSET },
+			FONT_DEFAULT,
+			std::format(FORMAT_HEALTH,game::avatar::Statistics::GetHealth()),
+			visuals::data::Colors::HEALTH,
+			visuals::HorizontalAlignment::RIGHT);
+		visuals::SpriteGrid::WriteText(
+			LAYOUT_NAME,
+			SPRITE_GRID_FLOOR,
+			{ GRID_COLUMNS, STATISTICS_ROW_OFFSET+1 },
+			FONT_DEFAULT,
+			std::format(FORMAT_HYDRATION, game::avatar::Statistics::GetHydration()),
+			visuals::data::Colors::HYDRATION,
+			visuals::HorizontalAlignment::RIGHT);
+	}
+
 	static void Refresh()
 	{
 		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID_FLOOR);//TODO: put in a clear row?
@@ -146,6 +170,7 @@ namespace state::in_play::Node
 		RefreshFloorContents();
 		RefreshScore();
 		RefreshExits();
+		RefreshStatistics();
 	}
 
 	static void OnEnter()

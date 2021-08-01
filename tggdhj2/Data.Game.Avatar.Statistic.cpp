@@ -5,7 +5,7 @@
 namespace data::game::avatar::Statistic
 {
 	const std::string FIELD_STATISTIC_VALUE = "StatisticValue";
-	const std::string CREATE_TABLE = "CREATE TABLE [AvatarStatistics]([AvatarId] INT NOT NULL,[StatisticId] INT NOT NULL,[StatisticValue] REAL NOT NULL,UNIQUE([AvatarId],[StatisticId]));";
+	const std::string CREATE_TABLE = "CREATE TABLE IF NOT EXISTS [AvatarStatistics]([AvatarId] INT NOT NULL,[StatisticId] INT NOT NULL,[StatisticValue] REAL NOT NULL,UNIQUE([AvatarId],[StatisticId]));";
 	const std::string DELETE_ALL = "DELETE FROM [AvatarStatistics] WHERE [AvatarId]={};";
 	const std::string QUERY_ITEM = "SELECT [StatisticValue] FROM [AvatarStatistics] WHERE [AvatarId]={} AND [StatisticId]={};";
 	const std::string REPLACE_ITEM = "REPLACE INTO [AvatarStatistics]([AvatarId],[StatisticId],[StatisticValue]) VALUES({},{},{:.4f});";

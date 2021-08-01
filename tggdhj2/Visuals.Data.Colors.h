@@ -9,5 +9,6 @@ namespace visuals::data::Colors
 	const std::string CAPTION = "LightGreen";
 	const std::string SUBHEADING = "LightBlue";
 	const std::string DISABLED = "DarkGray";
-
+	const std::string HEALTH = "Red";
+	const std::string HYDRATION = "Blue";
 }
