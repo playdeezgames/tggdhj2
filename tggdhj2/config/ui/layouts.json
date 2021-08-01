@@ -15,5 +15,6 @@
     "State.Statistics":"config/ui/layouts/State.Statistics.json",
     "State.InPlay.Node":"config/ui/layouts/State.InPlay.Node.json",
     "State.InPlay.Win":"config/ui/layouts/State.InPlay.Win.json",
+    "State.InPlay.Lose":"config/ui/layouts/State.InPlay.Lose.json",
     "Sublayout.UIHamburger":"config/ui/layouts/Sublayout.UIHamburger.json"
 }

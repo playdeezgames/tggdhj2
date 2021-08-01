@@ -99,6 +99,7 @@ namespace common::Application
 		state::in_play::Next::Start,
 		state::in_play::Node::Start,
 		state::in_play::Win::Start,
+		state::in_play::Lose::Start,
 		sublayout::UIHamburger::Start,
 		Options::Initialize,
 		visuals::Layouts::Start
