@@ -192,6 +192,7 @@
     <ClCompile Include="State.ConfirmOverwrite.cpp" />
     <ClCompile Include="State.InPlay.Next.cpp" />
     <ClCompile Include="State.InPlay.Node.cpp" />
+    <ClCompile Include="State.InPlay.Win.cpp" />
     <ClCompile Include="State.Statistics.cpp" />
     <ClCompile Include="State.Tip.cpp" />
     <ClCompile Include="Sublayout.UIHamburger.cpp" />

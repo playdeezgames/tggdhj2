@@ -9,4 +9,10 @@ namespace game::Avatar
 	{
 		return MAXIMUM_SCORE * game::avatar::Visits::Count() / game::Nodes::Count();
 	}
+
+	bool HasWon()
+	{
+		return game::avatar::Visits::Count() == game::Nodes::Count();
+	}
+
 }

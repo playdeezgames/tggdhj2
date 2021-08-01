@@ -20,5 +20,6 @@ enum class UIState
 	TIP,
 	STATISTICS,
 	IN_PLAY_NEXT,
-	IN_PLAY_NODE
+	IN_PLAY_NODE,
+	IN_PLAY_WIN
 };

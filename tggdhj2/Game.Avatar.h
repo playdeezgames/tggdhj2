@@ -2,4 +2,5 @@
 namespace game::Avatar
 {
 	double GetScore();
+	bool HasWon();
 }

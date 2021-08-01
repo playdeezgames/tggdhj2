@@ -98,6 +98,7 @@ namespace common::Application
 		state::ConfirmOverwrite::Start,
 		state::in_play::Next::Start,
 		state::in_play::Node::Start,
+		state::in_play::Win::Start,
 		sublayout::UIHamburger::Start,
 		Options::Initialize,
 		visuals::Layouts::Start
