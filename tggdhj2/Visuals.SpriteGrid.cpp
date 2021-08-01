@@ -126,10 +126,10 @@ namespace visuals::SpriteGrid
 		switch (alignment)
 		{
 		case visuals::HorizontalAlignment::CENTER:
-			x -= text.size() / 2;
+			x -= (int)text.size() / 2;
 			break;
 		case visuals::HorizontalAlignment::RIGHT:
-			x -= text.size();
+			x -= (int)text.size();
 			break;
 		}
 		DoWriteText(layoutName, spriteGridId, { x,location.GetY() }, fontName, text, color);
