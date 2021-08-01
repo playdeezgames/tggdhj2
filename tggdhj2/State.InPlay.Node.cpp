@@ -10,6 +10,7 @@
 #include <format>
 #include "Game.Audio.Mux.h"
 #include "Game.Avatar.h"
+#include "Game.Avatar.Items.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
@@ -220,6 +221,25 @@ namespace state::in_play::Node
 
 	static bool HandleFloorMouseButtonUp()
 	{
+		if (hoverFloorItem)
+		{
+			auto index = hoverFloorItem.value();
+			auto iter = floorItems.begin();
+			while (index > 0 && iter!=floorItems.end())
+			{
+				++iter;
+				--index;
+			}
+			if (iter != floorItems.end())
+			{
+				auto positionId = game::avatar::Position::Read().value();
+				game::nodes::Items::Remove(positionId, iter->first, 1);
+				game::avatar::Items::Add(iter->first, 1);
+				UpdateFloorContents();
+				Refresh();
+				return true;
+			}
+		}
 		return false;
 	}
 
