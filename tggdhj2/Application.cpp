@@ -100,6 +100,7 @@ namespace common::Application
 		state::in_play::Node::Start,
 		state::in_play::Win::Start,
 		state::in_play::Lose::Start,
+		state::in_play::Inventory::Start,
 		sublayout::UIHamburger::Start,
 		Options::Initialize,
 		visuals::Layouts::Start

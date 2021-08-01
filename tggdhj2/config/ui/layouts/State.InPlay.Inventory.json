@@ -19,30 +19,6 @@
         "drop-shadow-y": 2
     },
     {
-        "type":"Area",
-        "area-id":"Floor",
-        "x":8,
-        "y":124,
-        "width":304,
-        "height":224
-    },
-    {
-        "type":"Area",
-        "area-id":"Actions",
-        "x":328,
-        "y":124,
-        "width":304,
-        "height":224
-    },
-    {
-        "type":"Area",
-        "area-id":"Exits",
-        "x":8,
-        "y":28,
-        "width":128,
-        "height":64
-    },
-    {
         "type": "Layout",
         "name": "Sublayout.Modded"
     },

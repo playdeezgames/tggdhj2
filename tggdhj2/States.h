@@ -16,3 +16,4 @@ namespace state::in_play::Next { void Start(); }
 namespace state::in_play::Node { void Start(); }
 namespace state::in_play::Win { void Start(); }
 namespace state::in_play::Lose { void Start(); }
+namespace state::in_play::Inventory { void Start(); }
