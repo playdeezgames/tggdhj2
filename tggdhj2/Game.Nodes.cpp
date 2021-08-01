@@ -6,6 +6,11 @@
 #include <map>
 namespace game::Nodes
 {
+	size_t Count()
+	{
+		return data::game::Node::All().size();
+	}
+
 	const std::map<game::Difficulty, size_t> worldSizes =
 	{
 		{game::Difficulty::EASY, 25},

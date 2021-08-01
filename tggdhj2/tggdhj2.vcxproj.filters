@@ -196,6 +196,12 @@
     <ClCompile Include="Data.Game.Node.Item.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
+    <ClCompile Include="Game.Avatar.Visits.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.Game.Avatar.Visit.cpp">
+      <Filter>Source\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
@@ -391,6 +397,12 @@
       <Filter>Headers\Game</Filter>
     </ClInclude>
     <ClInclude Include="Data.Game.Node.Item.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Avatar.Visits.h">
+      <Filter>Headers\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.Game.Avatar.Visit.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
   </ItemGroup>

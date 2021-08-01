@@ -3,4 +3,5 @@
 namespace game::Nodes
 {
 	void Reset(const game::Difficulty&);
+	size_t Count();
 }
