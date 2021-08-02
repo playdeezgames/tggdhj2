@@ -47,7 +47,7 @@ namespace state::in_play::Node
 	const size_t GRID_COLUMNS = 39;
 	const size_t GRID_ROWS = 21;
 
-	const std::string FLOOR_LABEL = "Floor:";
+	const std::string FLOOR_LABEL = "On floor:";
 	const std::string ACTIONS_LABEL = "Actions:";
 	const std::string NOTHING_LABEL = "(nothing)";
 
