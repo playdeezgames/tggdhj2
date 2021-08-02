@@ -341,6 +341,7 @@ namespace state::in_play::Node
 		switch (action)
 		{
 		case ActionType::INVENTORY:
+			game::avatar::Log::Write({visuals::data::Colors::HOVER, "You faff about in yer inventory."});
 			application::UIState::Write(::UIState::IN_PLAY_INVENTORY);
 			break;
 		}
