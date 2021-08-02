@@ -2,6 +2,7 @@
 #include "Data.Game.Avatar.Position.h"
 #include "Data.Game.Node.h"
 #include "Data.Game.Node.Path.h"
+#include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
@@ -34,8 +35,9 @@ namespace game::avatar::Position
 
 	const double HYDRATION_DELTA = -1.0;
 
-	void Move(const game::Direction& direction)
+	void Move()
 	{
+		auto direction = game::avatar::Facing::Read();
 		auto avatarPosition = Read();
 		if (avatarPosition)
 		{

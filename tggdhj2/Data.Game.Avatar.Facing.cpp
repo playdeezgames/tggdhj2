@@ -20,7 +20,7 @@ namespace data::game::avatar::Facing
 	int Read()
 	{
 		AutoCreateAvatarFacingsTable();
-		return common::Data::StringToInt(Common::Execute(std::format(REPLACE_ITEM, Common::AVATAR_ID)).front()[FIELD_DIRECTION_ID]);
+		return common::Data::StringToInt(Common::Execute(std::format(QUERY_ITEM, Common::AVATAR_ID)).front()[FIELD_DIRECTION_ID]);
 		
 	}
 }

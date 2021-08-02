@@ -1,5 +1,6 @@
 #include "Data.SQLite.Stores.h"
 #include "Game.h"
+#include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Visits.h"
@@ -16,6 +17,7 @@ namespace game
 		game::avatar::Visits::Reset(difficulty);
 		game::avatar::Position::Reset(difficulty);
 		game::avatar::Items::Reset(difficulty);
+		game::avatar::Facing::Reset(difficulty);
 	}
 
 	void Start()

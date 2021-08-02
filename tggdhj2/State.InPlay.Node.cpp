@@ -10,6 +10,7 @@
 #include <format>
 #include "Game.Audio.Mux.h"
 #include "Game.Avatar.h"
+#include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Statistics.h"
@@ -58,15 +59,22 @@ namespace state::in_play::Node
 		{::Command::RED, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) }
 	};
 
-	const std::map<game::Direction, std::string> directionNames =
+	enum class MoveAction
 	{
-		{game::Direction::NORTH, "Go North"},
-		{game::Direction::EAST, "Go East"},
-		{game::Direction::SOUTH, "Go South"},
-		{game::Direction::WEST, "Go West"}
+		MOVE_AHEAD,
+		TURN_RIGHT,
+		TURN_AROUND,
+		TURN_LEFT
 	};
 
-	std::optional<game::Direction> hoverDirection = std::nullopt;
+	const std::map<MoveAction,std::string> moveActionNames =
+	{
+		{MoveAction::MOVE_AHEAD, "Move Ahead"},
+		{MoveAction::TURN_RIGHT, "Turn Right"},
+		{MoveAction::TURN_AROUND, "Turn Around"},
+		{MoveAction::TURN_LEFT, "Turn Left"}
+	};
+	std::optional<MoveAction> hoverMoveAction = std::nullopt;
 
 	static void WriteGridText(int column, int row, const std::string& text, const std::string& color, const visuals::HorizontalAlignment& alignment)
 	{
@@ -80,13 +88,13 @@ namespace state::in_play::Node
 			alignment);
 	}
 
-	static void RefreshExits()
+	static void RefreshMoveActions()
 	{
 		int row = 0;
-		for (auto directionName : directionNames)
+		for (auto moveActionName : moveActionNames)
 		{
-			std::string color = (hoverDirection.has_value() && hoverDirection.value() == directionName.first) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
-			WriteGridText(0, row + EXITS_ROW_OFFSET, directionName.second, color, visuals::HorizontalAlignment::LEFT);
+			std::string color = (hoverMoveAction.has_value() && hoverMoveAction.value() == moveActionName.first) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
+			WriteGridText(0, row + EXITS_ROW_OFFSET, moveActionName.second, color, visuals::HorizontalAlignment::LEFT);
 			++row;
 		}
 	}
@@ -195,7 +203,7 @@ namespace state::in_play::Node
 		RefreshAvatarPosition();
 		RefreshFloorContents();
 		RefreshScore();
-		RefreshExits();
+		RefreshMoveActions();
 		RefreshStatistics();
 		RefreshActions();
 	}
@@ -220,9 +228,9 @@ namespace state::in_play::Node
 
 	static void HandleExitsMouseMotion(const common::XY<int>& xy)
 	{
-		hoverDirection = std::nullopt;
+		hoverMoveAction = std::nullopt;
 		int row = xy.GetY() / visuals::SpriteGrid::GetCellHeight(LAYOUT_NAME, SPRITE_GRID);
-		hoverDirection = (game::Direction)row;
+		hoverMoveAction = (MoveAction)row;
 		Refresh();
 	}
 
@@ -252,7 +260,7 @@ namespace state::in_play::Node
 	static void OnMouseMotionOutsideArea(const common::XY<int>& xy)
 	{
 		hoverFloorItem = std::nullopt;
-		hoverDirection = std::nullopt;
+		hoverMoveAction = std::nullopt;
 		hoverAction = std::nullopt;
 		Refresh();
 	}
@@ -281,11 +289,19 @@ namespace state::in_play::Node
 		return false;
 	}
 
+	const std::map<MoveAction, std::function<void()>> moveActionTable = 
+	{
+		{ MoveAction::MOVE_AHEAD, game::avatar::Position::Move},
+		{ MoveAction::TURN_AROUND, game::avatar::Facing::TurnAround},
+		{ MoveAction::TURN_LEFT, game::avatar::Facing::TurnLeft},
+		{ MoveAction::TURN_RIGHT, game::avatar::Facing::TurnRight}
+	};
+
 	static bool HandleExitsMouseButtonUp()
 	{
-		if (hoverDirection)
+		if (hoverMoveAction)
 		{
-			game::avatar::Position::Move(hoverDirection.value());
+			moveActionTable.find(hoverMoveAction.value())->second();
 			application::UIState::Write(::UIState::IN_PLAY_NEXT);
 			return true;
 		}
