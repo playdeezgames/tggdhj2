@@ -5,6 +5,7 @@ namespace game
 	{
 		TROUSERS,
 		CODPIECE,
-		WATERSKIN
+		WATERSKIN,
+		COMPASS
 	};
 }

@@ -27,8 +27,8 @@ namespace state::in_play::Node
 	const std::string LAYOUT_NAME = "State.InPlay.Node";
 
 	const std::string FORMAT_CAPTION = "NODE #{}:";
-	const std::string FORMAT_HEALTH = "\x80{:2.0f}";
-	const std::string FORMAT_HYDRATION = "\x81{:2.0f}";
+	const std::string FORMAT_HEALTH = "\x80{:3.0f}";
+	const std::string FORMAT_HYDRATION = "\x81{:3.0f}";
 	const std::string FORMAT_SCORE = "\x82{:2.0f}%";
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 

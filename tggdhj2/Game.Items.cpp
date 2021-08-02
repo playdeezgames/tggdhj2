@@ -39,6 +39,18 @@ namespace game::Items
 					{game::Difficulty::HARDCORE, 1}
 				}
 			}
+		},
+		{
+			Item::COMPASS,
+			{
+				"Compass",
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				}
+			}
 		}
 	};
 	static std::list<Item> allItems;
