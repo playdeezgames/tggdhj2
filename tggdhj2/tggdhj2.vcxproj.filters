@@ -229,6 +229,15 @@
     <ClCompile Include="State.InPlay.Inventory.cpp">
       <Filter>Source\States\InPlay</Filter>
     </ClCompile>
+    <ClCompile Include="Game.Directions.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.Avatar.Facing.cpp">
+      <Filter>Source\Game\Avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.Game.Avatar.Facing.cpp">
+      <Filter>Source\Data</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
@@ -441,9 +450,6 @@
     <ClInclude Include="Game.Difficulty.h">
       <Filter>Headers\Game\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="Game.Direction.h">
-      <Filter>Headers\Game\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="Game.Heading.h">
       <Filter>Headers\Game\Utility</Filter>
     </ClInclude>
@@ -457,6 +463,21 @@
       <Filter>Headers\Game\Avatar</Filter>
     </ClInclude>
     <ClInclude Include="Data.Game.Avatar.Item.h">
+      <Filter>Headers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Avatar.Facing.h">
+      <Filter>Headers\Game\Avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Direction.h">
+      <Filter>Headers\Game\Direction</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.DirectionDescriptor.h">
+      <Filter>Headers\Game\Direction</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.Directions.h">
+      <Filter>Headers\Game\Direction</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.Game.Avatar.Facing.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
   </ItemGroup>
@@ -553,6 +574,9 @@
     </Filter>
     <Filter Include="Source\Game\Nodes">
       <UniqueIdentifier>{46bed035-7304-4e20-9e24-8ee680da0cd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\Direction">
+      <UniqueIdentifier>{cf987375-4396-4d0f-a00b-e1dc9a0fc989}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

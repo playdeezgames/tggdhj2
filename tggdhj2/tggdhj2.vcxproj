@@ -169,6 +169,7 @@
     <ClCompile Include="Application.OnEnter.cpp" />
     <ClCompile Include="Common.Application.Internals.cpp" />
     <ClCompile Include="Common.Data.cpp" />
+    <ClCompile Include="Data.Game.Avatar.Facing.cpp" />
     <ClCompile Include="Data.Game.Avatar.Item.cpp" />
     <ClCompile Include="Data.Game.Avatar.Position.cpp" />
     <ClCompile Include="Data.Game.Avatar.Statistic.cpp" />
@@ -182,11 +183,13 @@
     <ClCompile Include="Game.Achievements.cpp" />
     <ClCompile Include="Game.Audio.Mux.cpp" />
     <ClCompile Include="Game.Avatar.cpp" />
+    <ClCompile Include="Game.Avatar.Facing.cpp" />
     <ClCompile Include="Game.Avatar.Items.cpp" />
     <ClCompile Include="Game.Avatar.Position.cpp" />
     <ClCompile Include="Game.Avatar.Statistics.cpp" />
     <ClCompile Include="Game.Avatar.Visits.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Game.Directions.cpp" />
     <ClCompile Include="Game.Heading.cpp" />
     <ClCompile Include="Game.Items.cpp" />
     <ClCompile Include="Game.Nodes.cpp" />
@@ -252,6 +255,7 @@
     <ClInclude Include="Common.Data.h" />
     <ClInclude Include="Common.Deck.h" />
     <ClInclude Include="Common.Data.Properties.h" />
+    <ClInclude Include="Data.Game.Avatar.Facing.h" />
     <ClInclude Include="Data.Game.Avatar.Item.h" />
     <ClInclude Include="Data.Game.Avatar.Position.h" />
     <ClInclude Include="Data.Game.Avatar.Statistic.h" />
@@ -264,6 +268,7 @@
     <ClInclude Include="Data.Stores.h" />
     <ClInclude Include="Game.Achievements.h" />
     <ClInclude Include="Game.Audio.Mux.h" />
+    <ClInclude Include="Game.Avatar.Facing.h" />
     <ClInclude Include="Game.Avatar.h" />
     <ClInclude Include="Game.Avatar.Items.h" />
     <ClInclude Include="Game.Avatar.Position.h" />
@@ -271,6 +276,8 @@
     <ClInclude Include="Game.Avatar.Visits.h" />
     <ClInclude Include="Game.Difficulty.h" />
     <ClInclude Include="Game.Direction.h" />
+    <ClInclude Include="Game.DirectionDescriptor.h" />
+    <ClInclude Include="Game.Directions.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Game.Heading.h" />
     <ClInclude Include="Game.Item.h" />

@@ -1,9 +1,10 @@
 #pragma once
-#include <vector>
-#include <string>
 #include <functional>
+#include <list>
 #include <map>
 #include <optional>
+#include <string>
+#include <vector>
 namespace common::Utility
 {
 	std::vector<std::string> ParseCommandLine(int, char**);
@@ -48,6 +49,17 @@ namespace common::Utility
 
 	bool FileExists(const std::string&);
 	unsigned char GetFileCheckSum(const std::string&);
+
+	template<typename TKey, typename TValue>
+	std::list<TKey> ExtractListFromMapKeys(const std::map<TKey, TValue> table)
+	{
+		std::list<TKey> results;
+		for (auto entry : table)
+		{
+			results.push_back(entry.first);
+		}
+		return results;
+	}
 }
 
 

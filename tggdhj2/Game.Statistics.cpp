@@ -1,3 +1,4 @@
+#include "Common.Utility.h"
 #include "Game.Statistics.h"
 #include <map>
 namespace game::Statistics
@@ -24,7 +25,7 @@ namespace game::Statistics
 		},
 	};
 
-	static std::list<game::Statistic> allStatistics;
+	const std::list<game::Statistic> allStatistics = common::Utility::ExtractListFromMapKeys(descriptors);
 
 	const game::StatisticDescriptor& Read(const game::Statistic& statistic)
 	{
@@ -33,13 +34,6 @@ namespace game::Statistics
 
 	const std::list<game::Statistic>& All()
 	{
-		if (allStatistics.empty())
-		{
-			for (auto descriptor : descriptors)
-			{
-				allStatistics.push_back(descriptor.first);
-			}
-		}
 		return allStatistics;
 	}
 
