@@ -1,11 +1,11 @@
-#include "Application.OnEnter.h"
+#include "Application.Update.h"
 #include "Application.UIState.h"
 #include "Game.h"
 #include "Game.Avatar.h"
 #include "Game.Avatar.Statistics.h"
 namespace state::in_play::Next
 {
-	static void OnEnter()
+	static void OnUpdate(const unsigned int&)
 	{
 		if (game::Avatar::HasWon())
 		{
@@ -23,6 +23,6 @@ namespace state::in_play::Next
 
 	void Start()
 	{
-		::application::OnEnter::AddHandler(::UIState::IN_PLAY_NEXT, OnEnter);
+		::application::Update::AddHandler(::UIState::IN_PLAY_NEXT, OnUpdate);
 	}
 }

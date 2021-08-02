@@ -7,6 +7,7 @@ namespace game
 	struct ItemDescriptor
 	{
 		std::string name;
+		std::string pickUpText;
 		std::map<game::Difficulty, size_t> itemCount;
 	};
 }

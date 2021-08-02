@@ -308,7 +308,7 @@ namespace state::in_play::Node
 			{
 				auto positionId = game::avatar::Position::Read().value();
 				game::nodes::Items::Remove(positionId, iter->first, 1);
-				game::avatar::Items::Add(iter->first, 1);
+				game::avatar::Items::Add(iter->first, 1, true);
 				UpdateFloorContents();
 				Refresh();
 				return true;

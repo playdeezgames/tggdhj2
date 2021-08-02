@@ -9,6 +9,7 @@ namespace game::Items
 			Item::TROUSERS, 
 			{
 				"Trousers",	
+				"You pick up trousers.",
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -21,6 +22,7 @@ namespace game::Items
 			Item::CODPIECE, 
 			{
 				"Codpiece",
+				"You pick up a codpiece.",
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -33,6 +35,7 @@ namespace game::Items
 			Item::WATERSKIN, 
 			{
 				"Waterskin",
+				"You pick up a waterskin.",
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -45,6 +48,7 @@ namespace game::Items
 			Item::COMPASS,
 			{
 				"Compass",
+				"You pick up a compass.",
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
