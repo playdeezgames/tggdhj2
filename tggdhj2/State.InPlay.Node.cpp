@@ -34,12 +34,6 @@ namespace state::in_play::Node
 	const std::string FORMAT_SCORE = "\x82{:2.0f}%";
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 
-	const std::string SPRITE_GRID = "Grid";
-	const std::string SPRITE_GRID_LOG = "Log";
-
-	const std::string FONT_DEFAULT = "default";
-	const std::string FONT_SMALL = "font4x6";
-
 	const std::string AREA_FLOOR = "Floor";
 	const std::string AREA_EXITS = "Exits";
 	const std::string AREA_ACTIONS = "Actions";
@@ -57,6 +51,11 @@ namespace state::in_play::Node
 	const int ACTION_ROW_OFFSET = 7;
 
 	const std::string INVENTORY_TEXT = "You faff about in yer inventory.";
+
+	void ClearGrids();
+	int GetGridCellHeight();
+	void WriteLogText(int, int, const std::string&, const std::string&, const visuals::HorizontalAlignment&);
+	void WriteGridText(int, int, const std::string&, const std::string&, const visuals::HorizontalAlignment&);
 
 	const std::map<::Command, std::function<void()>> commandHandlers =
 	{
@@ -80,30 +79,6 @@ namespace state::in_play::Node
 		{MoveAction::TURN_LEFT, "Turn Left"}
 	};
 	std::optional<MoveAction> hoverMoveAction = std::nullopt;
-
-	static void WriteLogText(int column, int row, const std::string& text, const std::string& color, const visuals::HorizontalAlignment& alignment)
-	{
-		visuals::SpriteGrid::WriteText(
-			LAYOUT_NAME,
-			SPRITE_GRID_LOG,
-			{ column, row },
-			FONT_SMALL,
-			text,
-			color,
-			alignment);
-	}
-
-	static void WriteGridText(int column, int row, const std::string& text, const std::string& color, const visuals::HorizontalAlignment& alignment)
-	{
-		visuals::SpriteGrid::WriteText(
-			LAYOUT_NAME,
-			SPRITE_GRID,
-			{ column, row },
-			FONT_DEFAULT,
-			text,
-			color,
-			alignment);
-	}
 
 	static void RefreshMoveActions()
 	{
@@ -227,8 +202,7 @@ namespace state::in_play::Node
 
 	static void Refresh()
 	{
-		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID); 
-		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID_LOG);
+		ClearGrids();
 		RefreshAvatarPosition();
 		RefreshFloorContents();
 		RefreshScore();
@@ -248,7 +222,7 @@ namespace state::in_play::Node
 	static void HandleFloorMouseMotion(const common::XY<int>& xy)
 	{
 		hoverFloorItem = std::nullopt;
-		int row = xy.GetY() / visuals::SpriteGrid::GetCellHeight(LAYOUT_NAME, SPRITE_GRID);
+		int row = xy.GetY() / GetGridCellHeight();
 		if (row < floorItems.size())
 		{
 			hoverFloorItem = row;
@@ -259,7 +233,7 @@ namespace state::in_play::Node
 	static void HandleExitsMouseMotion(const common::XY<int>& xy)
 	{
 		hoverMoveAction = std::nullopt;
-		int row = xy.GetY() / visuals::SpriteGrid::GetCellHeight(LAYOUT_NAME, SPRITE_GRID);
+		int row = xy.GetY() / GetGridCellHeight();
 		hoverMoveAction = (MoveAction)row;
 		Refresh();
 	}
@@ -267,7 +241,7 @@ namespace state::in_play::Node
 	static void HandleActionsMouseMotion(const common::XY<int>& xy)
 	{
 		hoverAction = std::nullopt;
-		int row = xy.GetY() / visuals::SpriteGrid::GetCellHeight(LAYOUT_NAME, SPRITE_GRID);
+		int row = xy.GetY() / GetGridCellHeight();
 		if (row < actionLabels.size())
 		{
 			hoverAction = row;
