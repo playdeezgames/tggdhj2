@@ -46,7 +46,6 @@ namespace state::in_play::Node
 	const std::string NOTHING_LABEL = "(nothing)";
 
 	const int FLOOR_ROW_OFFSET = 7;
-	const int EXITS_ROW_OFFSET = 1;
 	const int STATISTICS_ROW_OFFSET = 1;
 	const int ACTION_ROW_OFFSET = 7;
 
@@ -57,39 +56,16 @@ namespace state::in_play::Node
 	void WriteLogText(int, int, const std::string&, const std::string&, const visuals::HorizontalAlignment&);
 	void WriteGridText(int, int, const std::string&, const std::string&, const visuals::HorizontalAlignment&);
 
+	void RefreshMoveActions();
+	void ClearHoverMoveAction();
+	bool HandleExitsMouseButtonUp();
+	void HandleExitsMouseMotion(const common::XY<int>&);
+
 	const std::map<::Command, std::function<void()>> commandHandlers =
 	{
 		{::Command::BACK, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) },
 		{::Command::RED, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) }
 	};
-
-	enum class MoveAction
-	{
-		MOVE_AHEAD,
-		TURN_RIGHT,
-		TURN_AROUND,
-		TURN_LEFT
-	};
-
-	const std::map<MoveAction,std::string> moveActionNames =
-	{
-		{MoveAction::MOVE_AHEAD, "Move Ahead"},
-		{MoveAction::TURN_RIGHT, "Turn Right"},
-		{MoveAction::TURN_AROUND, "Turn Around"},
-		{MoveAction::TURN_LEFT, "Turn Left"}
-	};
-	std::optional<MoveAction> hoverMoveAction = std::nullopt;
-
-	static void RefreshMoveActions()
-	{
-		int row = 0;
-		for (auto moveActionName : moveActionNames)
-		{
-			std::string color = (hoverMoveAction.has_value() && hoverMoveAction.value() == moveActionName.first) ? (visuals::data::Colors::HOVER) : (visuals::data::Colors::NORMAL);
-			WriteGridText(0, row + EXITS_ROW_OFFSET, moveActionName.second, color, visuals::HorizontalAlignment::LEFT);
-			++row;
-		}
-	}
 
 	static void RefreshScore()
 	{
@@ -104,7 +80,8 @@ namespace state::in_play::Node
 	static void RefreshAvatarPosition()
 	{
 		WriteGridText(
-			0, 0,
+			0, 
+			0,
 			std::format(FORMAT_CAPTION, game::avatar::Position::Read().value()),
 			visuals::data::Colors::CAPTION,
 			visuals::HorizontalAlignment::LEFT);
@@ -121,7 +98,8 @@ namespace state::in_play::Node
 	static void RefreshFloorContents()
 	{
 		WriteGridText(
-			0, FLOOR_ROW_OFFSET-1, 
+			0, 
+			FLOOR_ROW_OFFSET - 1, 
 			FLOOR_LABEL, 
 			visuals::data::Colors::SUBHEADING,
 			visuals::HorizontalAlignment::LEFT);
@@ -175,7 +153,8 @@ namespace state::in_play::Node
 	static void RefreshActions()
 	{
 		WriteGridText(
-			GRID_COLUMNS, ACTION_ROW_OFFSET - 1,
+			GRID_COLUMNS, 
+			ACTION_ROW_OFFSET - 1,
 			ACTIONS_LABEL,
 			visuals::data::Colors::SUBHEADING,
 			visuals::HorizontalAlignment::RIGHT);
@@ -200,7 +179,7 @@ namespace state::in_play::Node
 		}
 	}
 
-	static void Refresh()
+	void Refresh()
 	{
 		ClearGrids();
 		RefreshAvatarPosition();
@@ -230,14 +209,6 @@ namespace state::in_play::Node
 		Refresh();
 	}
 
-	static void HandleExitsMouseMotion(const common::XY<int>& xy)
-	{
-		hoverMoveAction = std::nullopt;
-		int row = xy.GetY() / GetGridCellHeight();
-		hoverMoveAction = (MoveAction)row;
-		Refresh();
-	}
-
 	static void HandleActionsMouseMotion(const common::XY<int>& xy)
 	{
 		hoverAction = std::nullopt;
@@ -264,7 +235,7 @@ namespace state::in_play::Node
 	static void OnMouseMotionOutsideArea(const common::XY<int>& xy)
 	{
 		hoverFloorItem = std::nullopt;
-		hoverMoveAction = std::nullopt;
+		ClearHoverMoveAction();
 		hoverAction = std::nullopt;
 		Refresh();
 	}
@@ -292,26 +263,6 @@ namespace state::in_play::Node
 		}
 		return false;
 	}
-
-	const std::map<MoveAction, std::function<void()>> moveActionTable = 
-	{
-		{ MoveAction::MOVE_AHEAD, game::avatar::Position::Move},
-		{ MoveAction::TURN_AROUND, game::avatar::Facing::TurnAround},
-		{ MoveAction::TURN_LEFT, game::avatar::Facing::TurnLeft},
-		{ MoveAction::TURN_RIGHT, game::avatar::Facing::TurnRight}
-	};
-
-	static bool HandleExitsMouseButtonUp()
-	{
-		if (hoverMoveAction)
-		{
-			moveActionTable.find(hoverMoveAction.value())->second();
-			application::UIState::Write(::UIState::IN_PLAY_NEXT);
-			return true;
-		}
-		return false;
-	}
-
 
 	static void DispatchAction(const ActionType& action)
 	{
