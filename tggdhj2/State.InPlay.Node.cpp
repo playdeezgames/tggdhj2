@@ -56,6 +56,8 @@ namespace state::in_play::Node
 	const int STATISTICS_ROW_OFFSET = 1;
 	const int ACTION_ROW_OFFSET = 7;
 
+	const std::string INVENTORY_TEXT = "You faff about in yer inventory.";
+
 	const std::map<::Command, std::function<void()>> commandHandlers =
 	{
 		{::Command::BACK, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) },
@@ -336,12 +338,13 @@ namespace state::in_play::Node
 		return false;
 	}
 
+
 	static void DispatchAction(const ActionType& action)
 	{
 		switch (action)
 		{
 		case ActionType::INVENTORY:
-			game::avatar::Log::Write({visuals::data::Colors::HOVER, "You faff about in yer inventory."});
+			game::avatar::Log::Write({visuals::data::Colors::HOVER, INVENTORY_TEXT});
 			application::UIState::Write(::UIState::IN_PLAY_INVENTORY);
 			break;
 		}
