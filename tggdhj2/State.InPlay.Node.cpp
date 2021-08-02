@@ -34,8 +34,10 @@ namespace state::in_play::Node
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 
 	const std::string SPRITE_GRID = "Grid";
+	const std::string SPRITE_GRID_LOG = "Log";
 
 	const std::string FONT_DEFAULT = "default";
+	const std::string FONT_SMALL = "font4x6";
 
 	const std::string AREA_FLOOR = "Floor";
 	const std::string AREA_EXITS = "Exits";
@@ -75,6 +77,18 @@ namespace state::in_play::Node
 		{MoveAction::TURN_LEFT, "Turn Left"}
 	};
 	std::optional<MoveAction> hoverMoveAction = std::nullopt;
+
+	static void WriteLogText(int column, int row, const std::string& text, const std::string& color, const visuals::HorizontalAlignment& alignment)
+	{
+		visuals::SpriteGrid::WriteText(
+			LAYOUT_NAME,
+			SPRITE_GRID_LOG,
+			{ column, row },
+			FONT_SMALL,
+			text,
+			color,
+			alignment);
+	}
 
 	static void WriteGridText(int column, int row, const std::string& text, const std::string& color, const visuals::HorizontalAlignment& alignment)
 	{
@@ -197,15 +211,22 @@ namespace state::in_play::Node
 		}
 	}
 
+	static void RefreshLog()
+	{
+		WriteLogText(0, 0, "Ohai!", visuals::data::Colors::NORMAL, visuals::HorizontalAlignment::LEFT);
+	}
+
 	static void Refresh()
 	{
-		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID);//TODO: put in a clear row?
+		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID); 
+		visuals::SpriteGrid::Clear(LAYOUT_NAME, SPRITE_GRID_LOG);
 		RefreshAvatarPosition();
 		RefreshFloorContents();
 		RefreshScore();
 		RefreshMoveActions();
 		RefreshStatistics();
 		RefreshActions();
+		RefreshLog();
 	}
 
 	static void OnEnter()
