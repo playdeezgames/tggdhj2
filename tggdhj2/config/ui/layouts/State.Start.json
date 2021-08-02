@@ -41,25 +41,25 @@
                 "y": 32
             },
             {
-                "text": "New Game - Easy",
+                "text": "New Game - 25 Node",
                 "menu-item-id": "Easy",
                 "x": 320,
                 "y": 48
             },
             {
-                "text": "New Game - Normal",
+                "text": "New Game - 50 Node",
                 "menu-item-id": "Normal",
                 "x": 320,
                 "y": 64
             },
             {
-                "text": "New Game - Hard",
+                "text": "New Game - 75 Node",
                 "menu-item-id": "Hard",
                 "x": 320,
                 "y": 80
             },
             {
-                "text": "New Game - HARDCORE",
+                "text": "New Game - 100 Node",
                 "menu-item-id": "Hardcore",
                 "x": 320,
                 "y": 96

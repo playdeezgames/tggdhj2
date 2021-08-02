@@ -3,7 +3,7 @@
 #include "Visuals.Data.Colors.h"
 namespace game::avatar::Log
 {
-	const std::string WELCOME_TEXT = "Now is the time to DISCOVER!";
+	const std::string WELCOME_TEXT = "Adventure awaits! HUZZAH!!";
 	const size_t ENTRY_COUNT = 12;//TODO: maybe this could be configurable somewhere?
 
 	void Reset(const Difficulty&)
