@@ -12,6 +12,7 @@
 #include "Game.Avatar.h"
 #include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Items.h"
+#include "Game.Avatar.Log.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
@@ -213,7 +214,13 @@ namespace state::in_play::Node
 
 	static void RefreshLog()
 	{
-		WriteLogText(0, 0, "Ohai!", visuals::data::Colors::NORMAL, visuals::HorizontalAlignment::LEFT);
+		auto entries = game::avatar::Log::Read();
+		int row = (int)entries.size();
+		for (auto entry : entries)
+		{
+			--row;
+			WriteLogText(0, row, entry.text, entry.color, visuals::HorizontalAlignment::LEFT);
+		}
 	}
 
 	static void Refresh()

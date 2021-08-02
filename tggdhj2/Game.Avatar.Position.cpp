@@ -3,11 +3,15 @@
 #include "Data.Game.Node.h"
 #include "Data.Game.Node.Path.h"
 #include "Game.Avatar.Facing.h"
+#include "Game.Avatar.Log.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
+#include "Visuals.Data.Colors.h"
 namespace game::avatar::Position
 {
+	const std::string MOVE_AHEAD_TEXT = "You move ahead.";
+
 	std::optional<int> Read()
 	{
 		return data::game::avatar::Position::Read();
@@ -37,6 +41,7 @@ namespace game::avatar::Position
 
 	void Move()
 	{
+		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, MOVE_AHEAD_TEXT });
 		auto direction = game::avatar::Facing::Read();
 		auto avatarPosition = Read();
 		if (avatarPosition)

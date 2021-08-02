@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Items.h"
+#include "Game.Avatar.Log.h"
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Visits.h"
 #include "Game.Nodes.h"
@@ -13,6 +14,7 @@ namespace game
 	{
 		data::sqlite::Stores::Bounce(data::sqlite::Store::IN_MEMORY);
 		game::Nodes::Reset(difficulty);
+		game::avatar::Log::Reset(difficulty);
 		game::nodes::Items::Reset(difficulty);
 		game::avatar::Visits::Reset(difficulty);
 		game::avatar::Position::Reset(difficulty);

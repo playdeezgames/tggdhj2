@@ -15,8 +15,8 @@
         "cell-height":7,
         "drop-shadow": true,
         "drop-shadow-color": "Black",
-        "drop-shadow-x": 2,
-        "drop-shadow-y": 2
+        "drop-shadow-x": 1,
+        "drop-shadow-y": 1
     },
     {
         "type":"SpriteGrid",
