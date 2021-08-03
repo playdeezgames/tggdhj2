@@ -29,9 +29,6 @@ namespace state::in_play::Node
 	const std::string LAYOUT_NAME = "State.InPlay.Node";
 
 	const std::string FORMAT_CAPTION = "NODE #{}:";
-	const std::string FORMAT_HEALTH = "\x80{:3.0f}";
-	const std::string FORMAT_HYDRATION = "\x81{:3.0f}";
-	const std::string FORMAT_SCORE = "\x82{:2.0f}%";
 	const std::string FORMAT_FLOOR_ITEM_COUNT = "{} (x{})";
 
 	const std::string AREA_FLOOR = "Floor";
@@ -46,7 +43,6 @@ namespace state::in_play::Node
 	const std::string NOTHING_LABEL = "(nothing)";
 
 	const int FLOOR_ROW_OFFSET = 7;
-	const int STATISTICS_ROW_OFFSET = 1;
 	const int ACTION_ROW_OFFSET = 7;
 
 	const std::string INVENTORY_TEXT = "You faff about in yer inventory.";
@@ -61,21 +57,13 @@ namespace state::in_play::Node
 	bool HandleExitsMouseButtonUp();
 	void HandleExitsMouseMotion(const common::XY<int>&);
 
+	void RefreshStatistics();
+
 	const std::map<::Command, std::function<void()>> commandHandlers =
 	{
 		{::Command::BACK, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) },
 		{::Command::RED, ::application::UIState::GoTo(::UIState::LEAVE_PLAY) }
 	};
-
-	static void RefreshScore()
-	{
-		WriteGridText(
-			GRID_COLUMNS, 
-			0, 
-			std::format(FORMAT_SCORE,game::Avatar::GetScore()),
-			visuals::data::Colors::HIGHLIGHT, 
-			visuals::HorizontalAlignment::RIGHT);
-	}
 
 	static void RefreshAvatarPosition()
 	{
@@ -125,19 +113,6 @@ namespace state::in_play::Node
 		}
 	}
 
-	static void RefreshStatistics()
-	{
-		WriteGridText(
-			GRID_COLUMNS, STATISTICS_ROW_OFFSET,
-			std::format(FORMAT_HEALTH,game::avatar::Statistics::GetHealth()),
-			visuals::data::Colors::HEALTH,
-			visuals::HorizontalAlignment::RIGHT);
-		WriteGridText(
-			GRID_COLUMNS, STATISTICS_ROW_OFFSET+1,
-			std::format(FORMAT_HYDRATION, game::avatar::Statistics::GetHydration()),
-			visuals::data::Colors::HYDRATION,
-			visuals::HorizontalAlignment::RIGHT);
-	}
 
 	enum class ActionType
 	{
@@ -184,7 +159,6 @@ namespace state::in_play::Node
 		ClearGrids();
 		RefreshAvatarPosition();
 		RefreshFloorContents();
-		RefreshScore();
 		RefreshMoveActions();
 		RefreshStatistics();
 		RefreshActions();

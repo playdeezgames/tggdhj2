@@ -8,6 +8,7 @@ namespace game::Directions
 			Direction::NORTH,
 			{
 				"North",
+				"N",
 				Direction::EAST,
 				Direction::SOUTH,
 				Direction::WEST
@@ -17,6 +18,7 @@ namespace game::Directions
 			Direction::EAST,
 			{
 				"East",
+				"E",
 				Direction::SOUTH,
 				Direction::WEST,
 				Direction::NORTH
@@ -26,6 +28,7 @@ namespace game::Directions
 			Direction::SOUTH,
 			{
 				"South",
+				"S",
 				Direction::WEST,
 				Direction::NORTH,
 				Direction::EAST
@@ -35,6 +38,7 @@ namespace game::Directions
 			Direction::WEST,
 			{
 				"West",
+				"W",
 				Direction::NORTH,
 				Direction::EAST,
 				Direction::SOUTH

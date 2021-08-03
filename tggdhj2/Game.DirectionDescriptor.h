@@ -6,6 +6,7 @@ namespace game
 	struct DirectionDescriptor
 	{
 		std::string name;
+		std::string abbreviation;
 		Direction next;
 		Direction opposite;
 		Direction previous;

@@ -250,6 +250,9 @@
     <ClCompile Include="State.InPlay.Node.SpriteGrids.cpp">
       <Filter>Source\States\InPlay</Filter>
     </ClCompile>
+    <ClCompile Include="State.InPlay.Node.Statistics.cpp">
+      <Filter>Source\States\InPlay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
