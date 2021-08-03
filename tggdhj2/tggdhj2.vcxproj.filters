@@ -259,6 +259,9 @@
     <ClCompile Include="Data.Game.Avatar.Counter.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
+    <ClCompile Include="Game.EquipSlots.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
@@ -519,6 +522,15 @@
     <ClInclude Include="Data.Game.Avatar.Counter.h">
       <Filter>Headers\Data</Filter>
     </ClInclude>
+    <ClInclude Include="Game.EquipSlot.h">
+      <Filter>Headers\Game\EquipSlots</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.EquipSlotDescriptor.h">
+      <Filter>Headers\Game\EquipSlots</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.EquipSlots.h">
+      <Filter>Headers\Game\EquipSlots</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -616,6 +628,9 @@
     </Filter>
     <Filter Include="Headers\Game\Direction">
       <UniqueIdentifier>{cf987375-4396-4d0f-a00b-e1dc9a0fc989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Game\EquipSlots">
+      <UniqueIdentifier>{d35166b5-d621-4861-aad7-4a27efb251d7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
