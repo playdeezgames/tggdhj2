@@ -15,6 +15,9 @@ namespace game::Items
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+					EquipSlot::LEGS
 				}
 			}
 		},
@@ -28,6 +31,9 @@ namespace game::Items
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+					EquipSlot::GROIN
 				}
 			}
 		},
@@ -41,6 +47,8 @@ namespace game::Items
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}
+				},
+				{
 				}
 			}
 		},
@@ -54,6 +62,8 @@ namespace game::Items
 					{game::Difficulty::NORMAL, 1},
 					{game::Difficulty::HARD, 1},
 					{game::Difficulty::HARDCORE, 1}
+				},
+				{
 				}
 			}
 		}
