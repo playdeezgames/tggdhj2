@@ -19,6 +19,30 @@
         "drop-shadow-y": 2
     },
     {
+        "type":"Area",
+        "area-id":"Inventory",
+        "x":8,
+        "y":28,
+        "width":304,
+        "height":320
+    },
+    {
+        "type":"Area",
+        "area-id":"Equipment",
+        "x":328,
+        "y":28,
+        "width":304,
+        "height":288
+    },
+    {
+        "type":"Area",
+        "area-id":"GoBack",
+        "x":328,
+        "y":332,
+        "width":304,
+        "height":16
+    },
+    {
         "type": "Layout",
         "name": "Sublayout.Modded"
     },
