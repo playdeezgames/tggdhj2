@@ -2,6 +2,7 @@
 #include "Data.Game.Avatar.Position.h"
 #include "Data.Game.Node.h"
 #include "Data.Game.Node.Path.h"
+#include "Game.Avatar.Counters.h"
 #include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Log.h"
 #include "Game.Avatar.Position.h"
@@ -42,6 +43,7 @@ namespace game::avatar::Position
 	void Move()
 	{
 		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, MOVE_AHEAD_TEXT });
+		game::avatar::Counters::Increment(game::avatar::Counter::MOVES_MADE);
 		auto direction = game::avatar::Facing::Read();
 		auto avatarPosition = Read();
 		if (avatarPosition)
