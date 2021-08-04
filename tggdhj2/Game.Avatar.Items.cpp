@@ -1,4 +1,5 @@
 #include "Data.Game.Avatar.Item.h"
+#include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Log.h"
 #include "Game.Items.h"
@@ -49,4 +50,15 @@ namespace game::avatar::Items
 		data::game::avatar::Item::Clear();
 	}
 
+	void Interact(const game::Item& item)
+	{
+		if (Read(item) > 0)
+		{
+			auto descriptor = game::Items::Read(item);
+			if (descriptor.equipSlot)
+			{
+				game::avatar::Equipment::Equip(item);
+			}
+		}
+	}
 }

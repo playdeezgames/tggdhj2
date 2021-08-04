@@ -236,7 +236,7 @@ namespace state::in_play::Inventory
 			}
 			if (iter != inventoryItems.end())
 			{
-				game::avatar::Equipment::Equip(iter->first);
+				game::avatar::Items::Interact(iter->first);
 				UpdateContents();
 				Refresh();
 				return true;
@@ -247,6 +247,23 @@ namespace state::in_play::Inventory
 
 	static bool HandleEquipmentMouseButtonUp()
 	{
+		if (hoverEquipment)
+		{
+			auto index = hoverEquipment.value();
+			auto iter = equipment.begin();
+			while (index > 0 && iter != equipment.end())
+			{
+				--index;
+				++iter;
+			}
+			if (iter != equipment.end())
+			{
+				game::avatar::Equipment::Unequip(iter->first);
+				UpdateContents();
+				Refresh();
+				return true;
+			}
+		}
 		return false;
 	}
 

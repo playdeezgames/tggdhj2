@@ -9,4 +9,5 @@ namespace game::avatar::Items
 	void Add(const game::Item&, size_t, bool);
 	void Remove(const game::Item&, size_t);
 	void Reset(const game::Difficulty&);
+	void Interact(const game::Item&);
 }
