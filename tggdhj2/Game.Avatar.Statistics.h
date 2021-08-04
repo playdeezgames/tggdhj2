@@ -11,4 +11,5 @@ namespace game::avatar::Statistics
 	double GetHydration();
 	double ChangeHydration(double);
 	bool IsDehydrated();
+	void FullyHydrate();
 }

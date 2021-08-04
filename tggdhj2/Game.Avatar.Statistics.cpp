@@ -32,6 +32,17 @@ namespace game::avatar::Statistics
 		data::game::avatar::Statistic::Write((int)statistic, value);
 	}
 
+	static void SetToMaximum(const game::Statistic& statistic)
+	{
+		auto descriptor = game::Statistics::Read(statistic);
+		if (descriptor.maximum.has_value())
+		{
+			SetStatistic(statistic, descriptor.maximum.value());
+		}
+	}
+
+
+
 	static double ChangeStatistic(const game::Statistic& statistic, double delta)
 	{
 		double newValue = GetStatistic(statistic) + delta;
@@ -79,4 +90,8 @@ namespace game::avatar::Statistics
 		return IsMinimum(game::Statistic::HYDRATION);
 	}
 
+	void FullyHydrate()
+	{
+		SetToMaximum(game::Statistic::HYDRATION);
+	}
 }

@@ -1,6 +1,7 @@
 #include "Common.Utility.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Log.h"
+#include "Game.Avatar.Statistics.h"
 #include "Game.Items.h"
 #include "Game.Nodes.Items.h"
 #include <map>
@@ -20,6 +21,12 @@ namespace game::Items
 	static void FoundCar(int)
 	{
 		game::avatar::Log::Write({ visuals::data::Colors::HIGHLIGHT, "Dude! You found yer car! Sweet!"});
+	}
+
+	static void InteractFountain(int)
+	{
+		game::avatar::Statistics::FullyHydrate();
+		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, "You drink from the fountain." });
 	}
 
 	const std::map<Item, ItemDescriptor> descriptors =
@@ -90,7 +97,7 @@ namespace game::Items
 			Item::FOUNTAIN,
 			{
 				"Fountain",
-				std::nullopt,
+				InteractFountain,
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
