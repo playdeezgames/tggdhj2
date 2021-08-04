@@ -1,6 +1,8 @@
 #include "Data.SQLite.Stores.h"
+#include <functional>
 #include "Game.h"
 #include "Game.Avatar.Counters.h"
+#include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Facing.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Log.h"
@@ -8,20 +10,30 @@
 #include "Game.Avatar.Visits.h"
 #include "Game.Nodes.h"
 #include "Game.Nodes.Items.h"
+#include <list>
 #include <map>
 namespace game
 {
+	const std::list<std::function<void(const Difficulty&)>> resetters =
+	{
+		game::Nodes::Reset,
+		game::avatar::Log::Reset,
+		game::nodes::Items::Reset,
+		game::avatar::Visits::Reset,
+		game::avatar::Position::Reset,
+		game::avatar::Items::Reset,
+		game::avatar::Facing::Reset,
+		game::avatar::Counters::Reset,
+		game::avatar::Equipment::Reset
+	};
+
 	void Reset(const Difficulty& difficulty)
 	{
 		data::sqlite::Stores::Bounce(data::sqlite::Store::IN_MEMORY);
-		game::Nodes::Reset(difficulty);
-		game::avatar::Log::Reset(difficulty);
-		game::nodes::Items::Reset(difficulty);
-		game::avatar::Visits::Reset(difficulty);
-		game::avatar::Position::Reset(difficulty);
-		game::avatar::Items::Reset(difficulty);
-		game::avatar::Facing::Reset(difficulty);
-		game::avatar::Counters::Reset(difficulty);
+		for (auto resetter : resetters)
+		{
+			resetter(difficulty);
+		}
 	}
 
 	void Start()

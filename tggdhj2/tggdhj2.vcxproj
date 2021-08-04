@@ -170,6 +170,7 @@
     <ClCompile Include="Common.Application.Internals.cpp" />
     <ClCompile Include="Common.Data.cpp" />
     <ClCompile Include="Data.Game.Avatar.Counter.cpp" />
+    <ClCompile Include="Data.Game.Avatar.Equipment.cpp" />
     <ClCompile Include="Data.Game.Avatar.Facing.cpp" />
     <ClCompile Include="Data.Game.Avatar.Item.cpp" />
     <ClCompile Include="Data.Game.Avatar.Log.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="Game.Audio.Mux.cpp" />
     <ClCompile Include="Game.Avatar.Counters.cpp" />
     <ClCompile Include="Game.Avatar.cpp" />
+    <ClCompile Include="Game.Avatar.Equipment.cpp" />
     <ClCompile Include="Game.Avatar.Facing.cpp" />
     <ClCompile Include="Game.Avatar.Items.cpp" />
     <ClCompile Include="Game.Avatar.Log.cpp" />
@@ -264,6 +266,7 @@
     <ClInclude Include="Common.Deck.h" />
     <ClInclude Include="Common.Data.Properties.h" />
     <ClInclude Include="Data.Game.Avatar.Counter.h" />
+    <ClInclude Include="Data.Game.Avatar.Equipment.h" />
     <ClInclude Include="Data.Game.Avatar.Facing.h" />
     <ClInclude Include="Data.Game.Avatar.Item.h" />
     <ClInclude Include="Data.Game.Avatar.Log.h" />
@@ -281,6 +284,7 @@
     <ClInclude Include="Game.Avatar.Counter.h" />
     <ClInclude Include="Game.Avatar.CounterDescriptor.h" />
     <ClInclude Include="Game.Avatar.Counters.h" />
+    <ClInclude Include="Game.Avatar.Equipment.h" />
     <ClInclude Include="Game.Avatar.Facing.h" />
     <ClInclude Include="Game.Avatar.h" />
     <ClInclude Include="Game.Avatar.Items.h" />
