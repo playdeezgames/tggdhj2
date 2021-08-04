@@ -3,6 +3,7 @@
 #include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Log.h"
+#include "Game.EquipSlots.h"
 #include "Game.Items.h"
 #include "Visuals.Data.Colors.h"
 namespace game::avatar::Equipment
@@ -13,6 +14,14 @@ namespace game::avatar::Equipment
 	std::map<EquipSlot, Item> ReadAll()
 	{
 		std::map<EquipSlot, Item> results;
+		for (auto equipSlot : game::EquipSlots::All())
+		{
+			auto item = Read(equipSlot);
+			if (item)
+			{
+				results[equipSlot] = item.value();
+			}
+		}
 		return results;
 	}
 

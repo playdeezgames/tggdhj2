@@ -110,7 +110,6 @@ namespace state::in_play::Inventory
 
 	}
 
-
 	static void RefreshInventoryContents()
 	{
 		WriteGridText(
@@ -158,11 +157,16 @@ namespace state::in_play::Inventory
 		RefreshEquipmentContents();
 	}
 
+	static void UpdateContents()
+	{
+		UpdateInventoryContents();
+		UpdateEquipmentContents();
+	}
+
 	static void OnEnter()
 	{
 		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
-		UpdateInventoryContents();
-		UpdateEquipmentContents();
+		UpdateContents();
 		Refresh();
 	}
 
@@ -221,6 +225,23 @@ namespace state::in_play::Inventory
 
 	static bool HandleInventoryMouseButtonUp()
 	{
+		if (hoverInventoryItem)
+		{
+			auto index = hoverInventoryItem.value();
+			auto iter = inventoryItems.begin();
+			while (index > 0 && iter != inventoryItems.end())
+			{
+				--index;
+				++iter;
+			}
+			if (iter != inventoryItems.end())
+			{
+				game::avatar::Equipment::Equip(iter->first);
+				UpdateContents();
+				Refresh();
+				return true;
+			}
+		}
 		return false;
 	}
 
