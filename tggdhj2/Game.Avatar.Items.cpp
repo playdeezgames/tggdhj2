@@ -1,7 +1,6 @@
 #include "Data.Game.Avatar.Item.h"
 #include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Items.h"
-#include "Game.Avatar.Log.h"
 #include "Game.Items.h"
 #include "Visuals.Data.Colors.h"
 namespace game::avatar::Items
@@ -25,18 +24,9 @@ namespace game::avatar::Items
 		return data::game::avatar::Item::Read((int)item);
 	}
 
-	void Add(const game::Item& item, size_t delta, bool log)
+	void Add(const game::Item& item, size_t delta)
 	{
 		data::game::avatar::Item::Write((int)item, Read(item) + delta);
-		if (log)
-		{
-			auto descriptor = game::Items::Read(item);
-			while (delta > 0)
-			{
-				game::avatar::Log::Write({visuals::data::Colors::NORMAL, descriptor.pickUpText});
-				--delta;
-			}
-		}
 	}
 
 	void Remove(const game::Item& item, size_t delta)

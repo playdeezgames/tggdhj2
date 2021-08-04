@@ -6,6 +6,9 @@ namespace game
 		TROUSERS,
 		CODPIECE,
 		WATERSKIN,
-		COMPASS
+		COMPASS,
+		TRANSFUNCTIONER,
+		YER_CAR,
+		FOUNTAIN
 	};
 }

@@ -56,7 +56,7 @@ namespace game::avatar::Equipment
 		if (equipped)
 		{
 			data::game::avatar::Equipment::Clear((int)equipSlot);
-			game::avatar::Items::Add(equipped.value(), 1, false);
+			game::avatar::Items::Add(equipped.value(), 1);
 			auto descriptor = game::Items::Read(equipped.value());
 			game::avatar::Log::Write({ visuals::data::Colors::NORMAL, std::format(FORMAT_UNEQUIP, descriptor.name) });
 		}

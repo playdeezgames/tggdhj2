@@ -228,8 +228,11 @@ namespace state::in_play::Node
 			if (iter != floorItems.end())
 			{
 				auto positionId = game::avatar::Position::Read().value();
-				game::nodes::Items::Remove(positionId, iter->first, 1);
-				game::avatar::Items::Add(iter->first, 1, true);
+				auto onPickUp = game::Items::Read(iter->first).onPickUp;
+				if (onPickUp)
+				{
+					onPickUp.value()(positionId);
+				}
 				UpdateFloorContents();
 				Refresh();
 				return true;

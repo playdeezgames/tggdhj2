@@ -1,15 +1,29 @@
 #include "Common.Utility.h"
+#include "Game.Avatar.Items.h"
+#include "Game.Avatar.Log.h"
 #include "Game.Items.h"
+#include "Game.Nodes.Items.h"
 #include <map>
+#include "Visuals.Data.Colors.h"
 namespace game::Items
 {
+	static std::function<void(int)> DoStandardPickUp(const std::string& pickUpMessage, const game::Item& item)
+	{
+		return [pickUpMessage, item](int positionId) 
+		{
+			game::nodes::Items::Remove(positionId, item, 1);
+			game::avatar::Log::Write({ visuals::data::Colors::NORMAL, pickUpMessage });
+			game::avatar::Items::Add(item, 1);
+		};
+	}
+
 	const std::map<Item, ItemDescriptor> descriptors =
 	{
 		{
 			Item::TROUSERS, 
 			{
 				"Trousers",	
-				"You pick up trousers.",
+				DoStandardPickUp("You pick up trousers.", Item::TROUSERS),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -25,7 +39,7 @@ namespace game::Items
 			Item::CODPIECE, 
 			{
 				"Codpiece",
-				"You pick up a codpiece.",
+				DoStandardPickUp("You pick up a codpiece.", Item::CODPIECE),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -41,7 +55,7 @@ namespace game::Items
 			Item::WATERSKIN, 
 			{
 				"Waterskin",
-				"You pick up a waterskin.",
+				DoStandardPickUp("You pick up a waterskin.", Item::WATERSKIN),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -56,7 +70,7 @@ namespace game::Items
 			Item::COMPASS,
 			{
 				"Compass",
-				"You pick up a compass.",
+				DoStandardPickUp("You pick up a compass.", Item::COMPASS),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
