@@ -17,6 +17,11 @@ namespace game::Items
 		};
 	}
 
+	static void FoundCar(int)
+	{
+		game::avatar::Log::Write({ visuals::data::Colors::HIGHLIGHT, "Dude! You found yer car! Sweet!"});
+	}
+
 	const std::map<Item, ItemDescriptor> descriptors =
 	{
 		{
@@ -71,6 +76,51 @@ namespace game::Items
 			{
 				"Compass",
 				DoStandardPickUp("You pick up a compass.", Item::COMPASS),
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::FOUNTAIN,
+			{
+				"Fountain",
+				std::nullopt,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::YER_CAR,
+			{
+				"Yer car",
+				FoundCar,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::TRANSFUNCTIONER,
+			{
+				"Transfunctioner",
+				DoStandardPickUp("Its mystery is only exceeded by its power!", Item::TRANSFUNCTIONER),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
