@@ -19,7 +19,7 @@
 #include "Game.Items.h"
 #include "Game.Nodes.h"
 #include "Game.Nodes.Items.h"
-#include "Game.Statistic.h"
+#include "Game.Statistics.h"
 #include "Visuals.Areas.h"
 #include "Visuals.Data.Colors.h"
 #include "Visuals.Menus.h"
@@ -69,35 +69,12 @@ namespace state::in_play::Statistics
 			visuals::HorizontalAlignment::RIGHT);
 	}
 
-	struct StatisticsFormatter
+	const std::list<game::Statistic> statistics =
 	{
-		game::Statistic statistic;
-		std::string color;
-		std::string format;
-	};
-
-	const std::list<StatisticsFormatter> statisticsFormatters =
-	{
-		{
-			game::Statistic::HEALTH,
-			visuals::data::Colors::HEALTH,
-			"\x80{:3.0f}"
-		},
-		{
-			game::Statistic::HYDRATION,
-			visuals::data::Colors::HYDRATION,
-			"\x81{:3.0f}"
-		},
-		{
-			game::Statistic::CONFIDENCE,
-			visuals::data::Colors::NORMAL,
-			"Confidence: {:.0f}"
-		},
-		{
-			game::Statistic::DIGNITY,
-			visuals::data::Colors::NORMAL,
-			"Dignity: {:.0f}"
-		}
+		game::Statistic::HEALTH,
+		game::Statistic::HYDRATION,
+		game::Statistic::CONFIDENCE,
+		game::Statistic::DIGNITY
 	};
 
 	static void RefreshStatistics()
@@ -109,9 +86,10 @@ namespace state::in_play::Statistics
 			visuals::data::Colors::SUBHEADING,
 			visuals::HorizontalAlignment::LEFT);
 		int row = 0;
-		for (auto formatter : statisticsFormatters)
+		for (auto statistic : statistics)
 		{
-			WriteGridText(0, row + STATISTICS_ROW_OFFSET, std::format(formatter.format, game::avatar::Statistics::GetCurrent(formatter.statistic)), formatter.color, visuals::HorizontalAlignment::LEFT);
+			auto descriptor = game::Statistics::Read(statistic);
+			WriteGridText(0, row + STATISTICS_ROW_OFFSET, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(statistic)), descriptor.color, visuals::HorizontalAlignment::LEFT);
 			++row;
 		}
 	}

@@ -9,5 +9,7 @@ namespace game
 		double initial;
 		std::optional<double> minimum;
 		std::optional<double> maximum;
+		std::string color;
+		std::string format;
 	};
 }

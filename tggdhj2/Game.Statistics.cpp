@@ -1,6 +1,7 @@
 #include "Common.Utility.h"
 #include "Game.Statistics.h"
 #include <map>
+#include "Visuals.Data.Colors.h"
 namespace game::Statistics
 {
 	const std::map<game::Statistic, game::StatisticDescriptor> descriptors =
@@ -11,7 +12,9 @@ namespace game::Statistics
 				"Health",
 				100.0,
 				0.0,
-				100.0
+				100.0,
+				visuals::data::Colors::HEALTH,
+				"\x80{:3.0f}"
 			}
 		},
 		{
@@ -20,7 +23,9 @@ namespace game::Statistics
 				"Hydration",
 				100.0,
 				0.0,
-				100.0
+				100.0,
+				visuals::data::Colors::HYDRATION,
+				"\x81{:3.0f}"
 			}
 		},
 		{
@@ -29,7 +34,9 @@ namespace game::Statistics
 				"Confidence",
 				0.0,
 				0.0,
-				std::nullopt
+				std::nullopt,
+				visuals::data::Colors::NORMAL,
+				"Confidence: {:.0f}"
 			}
 		},
 		{
@@ -38,7 +45,9 @@ namespace game::Statistics
 				"Dignity",
 				0.0,
 				0.0,
-				std::nullopt
+				std::nullopt,
+				visuals::data::Colors::NORMAL,
+				"Dignity: {:.0f}"
 			}
 		}
 	};
@@ -54,5 +63,4 @@ namespace game::Statistics
 	{
 		return allStatistics;
 	}
-
 }
