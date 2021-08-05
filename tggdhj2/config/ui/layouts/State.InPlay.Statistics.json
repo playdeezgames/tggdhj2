@@ -1,0 +1,37 @@
+[
+    {
+        "type": "Image",
+        "sprite": "Background",
+        "color": "DarkGray",
+        "x": 0,
+        "y": 0
+    },
+    {
+        "type":"SpriteGrid",
+        "sprite-grid-id":"Grid",
+        "x":8,
+        "y":12,
+        "cell-width":16,
+        "cell-height":16,
+        "drop-shadow": true,
+        "drop-shadow-color": "Black",
+        "drop-shadow-x": 2,
+        "drop-shadow-y": 2
+    },
+    {
+        "type":"Area",
+        "area-id":"GoBack",
+        "x":328,
+        "y":332,
+        "width":304,
+        "height":16
+    },
+    {
+        "type": "Layout",
+        "name": "Sublayout.Modded"
+    },
+    {
+        "type": "Layout",
+        "name": "Sublayout.UIHamburger"
+    }
+]

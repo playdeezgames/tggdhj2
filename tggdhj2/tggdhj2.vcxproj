@@ -212,6 +212,7 @@
     <ClCompile Include="State.InPlay.Node.MoveActions.cpp" />
     <ClCompile Include="State.InPlay.Node.SpriteGrids.cpp" />
     <ClCompile Include="State.InPlay.Node.Statistics.cpp" />
+    <ClCompile Include="State.InPlay.Statistics.cpp" />
     <ClCompile Include="State.InPlay.Win.cpp" />
     <ClCompile Include="State.Statistics.cpp" />
     <ClCompile Include="State.Tip.cpp" />

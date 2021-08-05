@@ -46,6 +46,7 @@ namespace state::in_play::Node
 	const int ACTION_ROW_OFFSET = 7;
 
 	const std::string INVENTORY_TEXT = "You faff about in yer inventory.";
+	const std::string STATISTICS_TEXT = "You take stock of yerself.";
 
 	void ClearGrids();
 	int GetGridCellHeight();
@@ -116,12 +117,14 @@ namespace state::in_play::Node
 
 	enum class ActionType
 	{
-		INVENTORY
+		INVENTORY,
+		STATISTICS
 	};
 
 	const std::map<ActionType, std::string> actionLabels =
 	{
-		{ActionType::INVENTORY, "Inventory"}
+		{ActionType::INVENTORY, "Inventory"},
+		{ActionType::STATISTICS, "Statistics"}
 	};
 	std::optional<int> hoverAction = std::nullopt;
 
@@ -248,6 +251,10 @@ namespace state::in_play::Node
 		case ActionType::INVENTORY:
 			game::avatar::Log::Write({visuals::data::Colors::HOVER, INVENTORY_TEXT});
 			application::UIState::Write(::UIState::IN_PLAY_INVENTORY);
+			break;
+		case ActionType::STATISTICS:
+			game::avatar::Log::Write({ visuals::data::Colors::HOVER, STATISTICS_TEXT });
+			application::UIState::Write(::UIState::IN_PLAY_STATISTICS);
 			break;
 		}
 	}

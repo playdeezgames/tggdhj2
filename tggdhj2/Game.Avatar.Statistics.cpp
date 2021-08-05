@@ -8,7 +8,7 @@ namespace game::avatar::Statistics
 
 	}
 
-	static double GetStatistic(const game::Statistic& statistic)
+	double GetCurrent(const game::Statistic& statistic)
 	{
 		auto value = data::game::avatar::Statistic::Read((int)statistic);
 		if (value)
@@ -45,9 +45,9 @@ namespace game::avatar::Statistics
 
 	static double ChangeStatistic(const game::Statistic& statistic, double delta)
 	{
-		double newValue = GetStatistic(statistic) + delta;
+		double newValue = GetCurrent(statistic) + delta;
 		SetStatistic(statistic, newValue);
-		return newValue - GetStatistic(statistic);
+		return newValue - GetCurrent(statistic);
 	}
 
 	static bool IsMinimum(const game::Statistic& statistic)
@@ -55,14 +55,14 @@ namespace game::avatar::Statistics
 		auto descriptor = game::Statistics::Read(statistic);
 		if (descriptor.minimum)
 		{
-			return GetStatistic(statistic) <= descriptor.minimum.value();
+			return GetCurrent(statistic) <= descriptor.minimum.value();
 		}
 		return false;
 	}
 
 	double GetHealth()
 	{
-		return GetStatistic(game::Statistic::HEALTH);
+		return GetCurrent(game::Statistic::HEALTH);
 	}
 
 	double ChangeHealth(double delta)
@@ -77,7 +77,7 @@ namespace game::avatar::Statistics
 
 	double GetHydration()
 	{
-		return GetStatistic(game::Statistic::HYDRATION);
+		return GetCurrent(game::Statistic::HYDRATION);
 	}
 
 	double ChangeHydration(double delta)

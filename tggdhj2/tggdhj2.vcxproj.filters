@@ -268,6 +268,9 @@
     <ClCompile Include="Data.Game.Avatar.Equipment.cpp">
       <Filter>Source\Data</Filter>
     </ClCompile>
+    <ClCompile Include="State.InPlay.Statistics.cpp">
+      <Filter>Source\States\InPlay</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.hpp">
