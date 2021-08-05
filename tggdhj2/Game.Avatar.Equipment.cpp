@@ -8,9 +8,6 @@
 #include "Visuals.Data.Colors.h"
 namespace game::avatar::Equipment
 {
-	const std::string FORMAT_EQUIP = "You equip {}.";
-	const std::string FORMAT_UNEQUIP = "You unequip {}.";
-
 	std::map<EquipSlot, Item> ReadAll()
 	{
 		std::map<EquipSlot, Item> results;
@@ -43,9 +40,12 @@ namespace game::avatar::Equipment
 			if (descriptor.equipSlot)
 			{
 				Unequip(descriptor.equipSlot.value());
+				if (descriptor.onEquip)
+				{
+					descriptor.onEquip.value()();
+				}
 				game::avatar::Items::Remove(item, 1);
 				data::game::avatar::Equipment::Write((int)descriptor.equipSlot.value(), (int)item);
-				game::avatar::Log::Write({ visuals::data::Colors::NORMAL, std::format(FORMAT_EQUIP, descriptor.name) });
 			}
 		}
 	}
@@ -58,7 +58,10 @@ namespace game::avatar::Equipment
 			data::game::avatar::Equipment::Clear((int)equipSlot);
 			game::avatar::Items::Add(equipped.value(), 1);
 			auto descriptor = game::Items::Read(equipped.value());
-			game::avatar::Log::Write({ visuals::data::Colors::NORMAL, std::format(FORMAT_UNEQUIP, descriptor.name) });
+			if (descriptor.onUnequip)
+			{
+				descriptor.onUnequip.value()();
+			}
 		}
 	}
 

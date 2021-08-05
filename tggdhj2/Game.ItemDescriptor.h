@@ -12,6 +12,9 @@ namespace game
 	{
 		std::string name;
 		std::optional<std::function<void(int)>> onPickUp;
+		std::optional<std::function<void()>> onInteract;
+		std::optional<std::function<void()>> onEquip;
+		std::optional<std::function<void()>> onUnequip;
 		std::map<game::Difficulty, size_t> itemCount;
 		std::optional<game::EquipSlot> equipSlot;
 	};

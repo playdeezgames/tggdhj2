@@ -45,9 +45,9 @@ namespace game::avatar::Items
 		if (Read(item) > 0)
 		{
 			auto descriptor = game::Items::Read(item);
-			if (descriptor.equipSlot)
+			if (descriptor.onInteract)
 			{
-				game::avatar::Equipment::Equip(item);
+				descriptor.onInteract.value()();
 			}
 		}
 	}

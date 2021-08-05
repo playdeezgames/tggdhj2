@@ -1,4 +1,5 @@
 #include "Common.Utility.h"
+#include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Log.h"
 #include "Game.Avatar.Statistics.h"
@@ -29,6 +30,22 @@ namespace game::Items
 		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, "You drink from the fountain." });
 	}
 
+	static std::function<void()> DoStandardEquip(const game::Item& item)
+	{
+		return [item]() 
+		{
+			game::avatar::Equipment::Equip(item);
+		};
+	}
+
+	static std::function<void()> DoLogMessage(const std::string& color, const std::string& message)
+	{
+		return [color, message]()
+		{
+			game::avatar::Log::Write({ color, message });
+		};
+	}
+
 	const std::map<Item, ItemDescriptor> descriptors =
 	{
 		{
@@ -36,6 +53,9 @@ namespace game::Items
 			{
 				"Trousers",	
 				DoStandardPickUp("You pick up trousers.", Item::TROUSERS),
+				DoStandardEquip(Item::TROUSERS),
+				DoLogMessage(visuals::data::Colors::NORMAL, "You put them on one leg at a time."),
+				DoLogMessage(visuals::data::Colors::NORMAL, "You remove yer trousers. Feel the breeze!"),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -52,6 +72,9 @@ namespace game::Items
 			{
 				"Codpiece",
 				DoStandardPickUp("You pick up a codpiece.", Item::CODPIECE),
+				DoStandardEquip(Item::CODPIECE),
+				DoLogMessage(visuals::data::Colors::NORMAL, "Yer confidence... enlarges."),
+				DoLogMessage(visuals::data::Colors::NORMAL, "You remove yer codpiece and feel... smaller!"),
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -64,25 +87,13 @@ namespace game::Items
 			}
 		},
 		{
-			Item::WATERSKIN, 
-			{
-				"Waterskin",
-				DoStandardPickUp("You pick up a waterskin.", Item::WATERSKIN),
-				{
-					{game::Difficulty::EASY, 1},
-					{game::Difficulty::NORMAL, 1},
-					{game::Difficulty::HARD, 1},
-					{game::Difficulty::HARDCORE, 1}
-				},
-				{
-				}
-			}
-		},
-		{
 			Item::COMPASS,
 			{
 				"Compass",
 				DoStandardPickUp("You pick up a compass.", Item::COMPASS),
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -98,6 +109,9 @@ namespace game::Items
 			{
 				"Fountain",
 				InteractFountain,
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -113,6 +127,9 @@ namespace game::Items
 			{
 				"Yer car",
 				FoundCar,
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -128,6 +145,99 @@ namespace game::Items
 			{
 				"Transfunctioner",
 				DoStandardPickUp("Its mystery is only exceeded by its power!", Item::TRANSFUNCTIONER),
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::HOT_CHICKS,
+			{
+				"Hot chicks",
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::CHINESE_FOOOOOD_LADY,
+			{
+				"Chinese Foooood Lady",
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::MACGUFFIN,
+			{
+				"Macguffin",
+				DoStandardPickUp("You pick up the macguffin!", Item::MACGUFFIN),
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::NORDIC_GUYS,
+			{
+				"Nordic Guys",
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				{
+					{game::Difficulty::EASY, 1},
+					{game::Difficulty::NORMAL, 1},
+					{game::Difficulty::HARD, 1},
+					{game::Difficulty::HARDCORE, 1}
+				},
+				{
+				}
+			}
+		},
+		{
+			Item::ZOLTAN,
+			{
+				"Zoltan",
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
+				std::nullopt,
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -151,5 +261,4 @@ namespace game::Items
 	{
 		return allItems;
 	}
-
 }
