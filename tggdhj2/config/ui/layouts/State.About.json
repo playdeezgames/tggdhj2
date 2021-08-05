@@ -33,6 +33,19 @@
         "drop-shadow-y": 2
     },
     {
+        "type": "Text",
+        "font": "default",
+        "color": "LightRed",
+        "text": "\u0084 Special thanks to JohnGames \u0084",
+        "x": 320,
+        "y": 64,
+        "horizontal-alignment": 0,
+        "drop-shadow": true,
+        "drop-shadow-color": "Black",
+        "drop-shadow-x": 2,
+        "drop-shadow-y": 2
+    },
+    {
         "type": "Layout",
         "name": "Sublayout.Modded"
     }

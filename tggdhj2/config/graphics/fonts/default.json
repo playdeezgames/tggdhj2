@@ -98,5 +98,7 @@
   "-128": "Character80",
   "-127": "Character81",
   "-126": "Character82",
-  "-125": "Character83"
+  "-125": "Character83",
+  "-124": "Character84",
+  "-62":"CharacterNull"
 }
