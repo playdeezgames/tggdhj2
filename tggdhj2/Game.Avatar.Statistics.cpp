@@ -41,9 +41,7 @@ namespace game::avatar::Statistics
 		}
 	}
 
-
-
-	static double ChangeStatistic(const game::Statistic& statistic, double delta)
+	double ChangeCurrent(const game::Statistic& statistic, double delta)
 	{
 		double newValue = GetCurrent(statistic) + delta;
 		SetStatistic(statistic, newValue);
@@ -67,7 +65,7 @@ namespace game::avatar::Statistics
 
 	double ChangeHealth(double delta)
 	{
-		return ChangeStatistic(game::Statistic::HEALTH, delta);
+		return ChangeCurrent(game::Statistic::HEALTH, delta);
 	}
 
 	bool IsDead()
@@ -82,7 +80,7 @@ namespace game::avatar::Statistics
 
 	double ChangeHydration(double delta)
 	{
-		return ChangeStatistic(game::Statistic::HYDRATION, delta);
+		return ChangeCurrent(game::Statistic::HYDRATION, delta);
 	}
 
 	bool IsDehydrated()

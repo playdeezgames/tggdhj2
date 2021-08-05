@@ -23,6 +23,24 @@ namespace game::Statistics
 				100.0
 			}
 		},
+		{
+			game::Statistic::CONFIDENCE,
+			{
+				"Confidence",
+				0.0,
+				0.0,
+				std::nullopt
+			}
+		},
+		{
+			game::Statistic::DIGNITY,
+			{
+				"Dignity",
+				0.0,
+				0.0,
+				std::nullopt
+			}
+		}
 	};
 
 	const std::list<game::Statistic> allStatistics = common::Utility::ExtractListFromMapKeys(descriptors);

@@ -4,6 +4,8 @@ namespace game
 	enum class Statistic
 	{
 		HEALTH,
-		HYDRATION
+		HYDRATION,
+		CONFIDENCE,
+		DIGNITY
 	};
 }

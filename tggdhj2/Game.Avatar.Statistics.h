@@ -6,6 +6,7 @@ namespace game::avatar::Statistics
 	void Reset(const game::Difficulty&);
 
 	double GetCurrent(const Statistic&);
+	double ChangeCurrent(const Statistic&, double);
 
 	double GetHealth();
 	double ChangeHealth(double);

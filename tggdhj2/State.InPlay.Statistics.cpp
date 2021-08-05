@@ -87,6 +87,16 @@ namespace state::in_play::Statistics
 			game::Statistic::HYDRATION,
 			visuals::data::Colors::HYDRATION,
 			"\x81{:3.0f}"
+		},
+		{
+			game::Statistic::CONFIDENCE,
+			visuals::data::Colors::NORMAL,
+			"Confidence: {:.0f}"
+		},
+		{
+			game::Statistic::DIGNITY,
+			visuals::data::Colors::NORMAL,
+			"Dignity: {:.0f}"
 		}
 	};
 

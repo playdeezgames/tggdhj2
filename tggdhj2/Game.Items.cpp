@@ -54,8 +54,16 @@ namespace game::Items
 				"Trousers",	
 				DoStandardPickUp("You pick up trousers.", Item::TROUSERS),
 				DoStandardEquip(Item::TROUSERS),
-				DoLogMessage(visuals::data::Colors::NORMAL, "You put them on one leg at a time."),
-				DoLogMessage(visuals::data::Colors::NORMAL, "You remove yer trousers. Feel the breeze!"),
+				[]()
+				{
+					game::avatar::Log::Write({visuals::data::Colors::NORMAL, "You put them on one leg at a time."});
+					game::avatar::Statistics::ChangeCurrent(game::Statistic::DIGNITY, 100.0);
+				},
+				[]()
+				{
+					game::avatar::Log::Write({visuals::data::Colors::NORMAL, "You remove yer trousers. Feel the breeze!"});
+					game::avatar::Statistics::ChangeCurrent(game::Statistic::DIGNITY, -100.0);
+				},
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
@@ -73,8 +81,16 @@ namespace game::Items
 				"Codpiece",
 				DoStandardPickUp("You pick up a codpiece.", Item::CODPIECE),
 				DoStandardEquip(Item::CODPIECE),
-				DoLogMessage(visuals::data::Colors::NORMAL, "Yer confidence... enlarges."),
-				DoLogMessage(visuals::data::Colors::NORMAL, "You remove yer codpiece and feel... smaller!"),
+				[]() 
+				{
+					game::avatar::Log::Write({visuals::data::Colors::NORMAL, "Yer confidence... enlarges."});
+					game::avatar::Statistics::ChangeCurrent(game::Statistic::CONFIDENCE, 100.0);
+				},
+				[]() 
+				{
+					game::avatar::Log::Write({visuals::data::Colors::NORMAL, "You remove yer codpiece and feel... smaller!"});
+					game::avatar::Statistics::ChangeCurrent(game::Statistic::CONFIDENCE, -100.0);
+				},
 				{
 					{game::Difficulty::EASY, 1},
 					{game::Difficulty::NORMAL, 1},
