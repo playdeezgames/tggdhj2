@@ -35,7 +35,7 @@ namespace state::in_play::Win
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CONFIDENCE, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(game::Statistic::CONFIDENCE)));
 		descriptor = game::Statistics::Read(game::Statistic::DIGNITY);
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_DIGNITY, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(game::Statistic::DIGNITY)));
-		visuals::Texts::SetText(LAYOUT_NAME, TEXT_FOUND_CAR, (game::avatar::Counters::IsSet(game::avatar::Counter::FOUND_CAR)) ? ("You found yer car, dude!") : (""));
+		visuals::Texts::SetText(LAYOUT_NAME, TEXT_FOUND_CAR, (game::avatar::Counters::IsSet(game::avatar::Counter::FOUND_CAR)) ? ("You found yer car, dude!") : ("Where's yer car, dude?"));
 		common::audio::Sfx::Play(SFX_WIN);
 	}
 
