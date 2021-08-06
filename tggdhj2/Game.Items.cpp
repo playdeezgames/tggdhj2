@@ -42,14 +42,22 @@ namespace game::Items
 
 	static void NordicGuys(int)
 	{
-		//TODO: something
-		application::UIState::Write(::UIState::IN_PLAY_NORDIC_GUYS);
+		if (game::avatar::Items::Read(game::Item::TRANSFUNCTIONER) > 0)
+		{
+			application::UIState::Write(::UIState::IN_PLAY_NORDIC_GUYS);
+			return;
+		}
+		//TODO: play sound prompt
 	}
 
 	static void HotChicks(int)
 	{
-		//TODO: something
-		application::UIState::Write(::UIState::IN_PLAY_HOT_CHICKS);
+		if (game::avatar::Items::Read(game::Item::TRANSFUNCTIONER) > 0)
+		{
+			application::UIState::Write(::UIState::IN_PLAY_HOT_CHICKS);
+			return;
+		}
+		//TODO: play sound prompt
 	}
 
 	static void InteractFountain(int)

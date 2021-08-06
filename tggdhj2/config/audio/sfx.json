@@ -1,4 +1,6 @@
 {
   "woohoo": "assets/audio/sfx/woohoo.wav",
-  "andthen": "assets/audio/sfx/andthen.wav"
+  "andthen": "assets/audio/sfx/andthen.wav",
+  "deadhunter": "assets/audio/sfx/deadhunter.wav",
+  "exit": "assets/audio/sfx/exit.wav"
 }
