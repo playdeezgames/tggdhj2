@@ -1,3 +1,4 @@
 {
-  "woohoo": "assets/audio/sfx/woohoo.wav"
+  "woohoo": "assets/audio/sfx/woohoo.wav",
+  "andthen": "assets/audio/sfx/andthen.wav"
 }

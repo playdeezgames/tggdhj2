@@ -1,3 +1,4 @@
+#include "Common.Audio.h"
 #include "Common.Utility.h"
 #include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Items.h"
@@ -9,6 +10,8 @@
 #include "Visuals.Data.Colors.h"
 namespace game::Items
 {
+	const std::string SFX_AND_THEN = "andthen";
+
 	static std::function<void(int)> DoStandardPickUp(const std::string& pickUpMessage, const game::Item& item)
 	{
 		return [pickUpMessage, item](int positionId) 
@@ -22,6 +25,28 @@ namespace game::Items
 	static void FoundCar(int)
 	{
 		game::avatar::Log::Write({ visuals::data::Colors::HIGHLIGHT, "Dude! You found yer car! Sweet!"});
+	}
+
+	static void AndThen(int)
+	{
+		common::audio::Sfx::Play(SFX_AND_THEN);
+		game::avatar::Log::Write({ visuals::data::Colors::SUBHEADING, "AND THENNNNNN?" });
+	}
+
+	static void Zoltan(int)
+	{
+		//TODO: recording of me saying "ZOLTAN!"
+		game::avatar::Log::Write({ visuals::data::Colors::SUBHEADING, "ZOLTAN!" });
+	}
+
+	static void NordicGuys(int)
+	{
+		//TODO: something
+	}
+
+	static void HotChicks(int)
+	{
+		//TODO: something
 	}
 
 	static void InteractFountain(int)
@@ -178,7 +203,7 @@ namespace game::Items
 			Item::HOT_CHICKS,
 			{
 				"Hot chicks",
-				std::nullopt,
+				HotChicks,
 				std::nullopt,
 				std::nullopt,
 				std::nullopt,
@@ -196,7 +221,7 @@ namespace game::Items
 			Item::CHINESE_FOOOOOD_LADY,
 			{
 				"Chinese Foooood Lady",
-				std::nullopt,
+				AndThen,
 				std::nullopt,
 				std::nullopt,
 				std::nullopt,
@@ -232,7 +257,7 @@ namespace game::Items
 			Item::NORDIC_GUYS,
 			{
 				"Nordic Guys",
-				std::nullopt,
+				NordicGuys,
 				std::nullopt,
 				std::nullopt,
 				std::nullopt,
@@ -250,7 +275,7 @@ namespace game::Items
 			Item::ZOLTAN,
 			{
 				"Zoltan",
-				std::nullopt,
+				Zoltan,
 				std::nullopt,
 				std::nullopt,
 				std::nullopt,
