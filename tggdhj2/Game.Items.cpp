@@ -1,6 +1,7 @@
 #include "Application.UIState.h"
 #include "Common.Audio.h"
 #include "Common.Utility.h"
+#include "Game.Avatar.Counters.h"
 #include "Game.Avatar.Equipment.h"
 #include "Game.Avatar.Items.h"
 #include "Game.Avatar.Log.h"
@@ -32,6 +33,7 @@ namespace game::Items
 	{
 		common::audio::Sfx::Play(SFX_AND_THEN);
 		game::avatar::Log::Write({ visuals::data::Colors::SUBHEADING, "AND THENNNNNN?" });
+		game::avatar::Counters::Increment(game::avatar::Counter::AND_THEN);
 	}
 
 	static void Zoltan(int)

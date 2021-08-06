@@ -3,6 +3,7 @@ namespace game::avatar
 {
 	enum class Counter
 	{
-		MOVES_MADE
+		MOVES_MADE,
+		AND_THEN
 	};
 }

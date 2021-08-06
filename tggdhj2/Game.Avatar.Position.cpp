@@ -8,6 +8,8 @@
 #include "Game.Avatar.Position.h"
 #include "Game.Avatar.Statistics.h"
 #include "Game.Avatar.Visits.h"
+#include "Game.Items.h"
+#include "Game.Nodes.Items.h"
 #include "Visuals.Data.Colors.h"
 namespace game::avatar::Position
 {
@@ -48,12 +50,27 @@ namespace game::avatar::Position
 		auto avatarPosition = Read();
 		if (avatarPosition)
 		{
+			bool andThen = 
+				game::avatar::Counters::Read(game::avatar::Counter::AND_THEN) > 0
+				&& game::nodes::Items::Read(avatarPosition.value(), game::Item::CHINESE_FOOOOOD_LADY)>0;
+			if (andThen)
+			{
+				game::nodes::Items::Remove(avatarPosition.value(), game::Item::CHINESE_FOOOOOD_LADY, 1);
+			}
+
 			auto overage = game::avatar::Statistics::ChangeHydration(HYDRATION_DELTA);
 			game::avatar::Statistics::ChangeHealth(overage);
 			auto nodePathTo = data::game::node::Path::Read(avatarPosition.value(), (int)direction);
 			if (nodePathTo)
 			{
 				Write(nodePathTo.value());
+				if (andThen)
+				{
+					game::avatar::Log::Write({visuals::data::Colors::HOVER, "The chinese fooooood lady follows you."});
+					game::nodes::Items::Add(nodePathTo.value(), game::Item::CHINESE_FOOOOOD_LADY, 1);
+					game::Items::Read(game::Item::CHINESE_FOOOOOD_LADY).onPickUp.value()(nodePathTo.value());
+				}
+
 			}
 		}
 	}
