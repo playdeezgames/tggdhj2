@@ -1,3 +1,4 @@
+#include "Application.UIState.h"
 #include "Common.Audio.h"
 #include "Common.Utility.h"
 #include "Game.Avatar.Equipment.h"
@@ -42,11 +43,13 @@ namespace game::Items
 	static void NordicGuys(int)
 	{
 		//TODO: something
+		application::UIState::Write(::UIState::IN_PLAY_NORDIC_GUYS);
 	}
 
 	static void HotChicks(int)
 	{
 		//TODO: something
+		application::UIState::Write(::UIState::IN_PLAY_HOT_CHICKS);
 	}
 
 	static void InteractFountain(int)

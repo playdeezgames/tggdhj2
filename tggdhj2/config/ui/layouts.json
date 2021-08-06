@@ -18,5 +18,7 @@
     "State.InPlay.Lose":"config/ui/layouts/State.InPlay.Lose.json",
     "State.InPlay.Inventory":"config/ui/layouts/State.InPlay.Inventory.json",
     "State.InPlay.Statistics":"config/ui/layouts/State.InPlay.Statistics.json",
+    "State.InPlay.NordicGuys":"config/ui/layouts/State.InPlay.NordicGuys.json",
+    "State.InPlay.HotChicks":"config/ui/layouts/State.InPlay.HotChicks.json",
     "Sublayout.UIHamburger":"config/ui/layouts/Sublayout.UIHamburger.json"
 }

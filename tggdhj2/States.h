@@ -18,3 +18,5 @@ namespace state::in_play::Win { void Start(); }
 namespace state::in_play::Lose { void Start(); }
 namespace state::in_play::Inventory { void Start(); }
 namespace state::in_play::Statistics { void Start(); }
+namespace state::in_play::NordicGuys { void Start(); }
+namespace state::in_play::HotChicks { void Start(); }

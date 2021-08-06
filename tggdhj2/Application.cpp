@@ -102,6 +102,8 @@ namespace common::Application
 		state::in_play::Lose::Start,
 		state::in_play::Inventory::Start,
 		state::in_play::Statistics::Start,
+		state::in_play::NordicGuys::Start,
+		state::in_play::HotChicks::Start,
 		sublayout::UIHamburger::Start,
 		Options::Initialize,
 		visuals::Layouts::Start

@@ -205,6 +205,7 @@
     <ClCompile Include="sqlite3.c" />
     <ClCompile Include="State.ConfirmAbandon.cpp" />
     <ClCompile Include="State.ConfirmOverwrite.cpp" />
+    <ClCompile Include="State.InPlay.HotChicks.cpp" />
     <ClCompile Include="State.InPlay.Inventory.cpp" />
     <ClCompile Include="State.InPlay.Lose.cpp" />
     <ClCompile Include="State.InPlay.Next.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="State.InPlay.Node.MoveActions.cpp" />
     <ClCompile Include="State.InPlay.Node.SpriteGrids.cpp" />
     <ClCompile Include="State.InPlay.Node.Statistics.cpp" />
+    <ClCompile Include="State.InPlay.NordicGuys.cpp" />
     <ClCompile Include="State.InPlay.Statistics.cpp" />
     <ClCompile Include="State.InPlay.Win.cpp" />
     <ClCompile Include="State.Statistics.cpp" />
