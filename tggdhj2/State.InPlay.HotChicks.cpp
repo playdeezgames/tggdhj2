@@ -22,7 +22,7 @@ namespace state::in_play::HotChicks
 	const std::map<ConfirmHotChicksItem, std::function<void()>> activators =
 	{
 		{ ConfirmHotChicksItem::NO, ::application::UIState::GoTo(::UIState::IN_PLAY_NEXT) },
-		{ ConfirmHotChicksItem::YES, ::application::UIState::GoTo(::UIState::IN_PLAY_NEXT) }
+		{ ConfirmHotChicksItem::YES, ::application::UIState::GoTo(::UIState::IN_PLAY_LOSE) }
 	};
 
 	static void ActivateItem()
