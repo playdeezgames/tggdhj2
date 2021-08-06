@@ -40,4 +40,21 @@ namespace game::avatar::Counters
 	{
 		data::game::avatar::Counter::Write((int)counter, Read(counter) + 1);
 	}
+
+	bool IsSet(const Counter& counter)
+	{
+		return Read(counter) != 0;
+	}
+
+
+	bool Set(const Counter& counter)
+	{
+		if (!IsSet(counter))
+		{
+			Increment(counter);
+			return true;
+		}
+		return false;
+	}
+
 }

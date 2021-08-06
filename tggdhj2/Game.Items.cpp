@@ -27,6 +27,7 @@ namespace game::Items
 	static void FoundCar(int)
 	{
 		game::avatar::Log::Write({ visuals::data::Colors::HIGHLIGHT, "Dude! You found yer car! Sweet!"});
+		game::avatar::Counters::Set(game::avatar::Counter::FOUND_CAR);
 	}
 
 	static void AndThen(int)

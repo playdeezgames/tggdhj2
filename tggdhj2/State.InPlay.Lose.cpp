@@ -6,6 +6,7 @@
 #include "Common.Audio.h"
 #include <format>
 #include "Game.Audio.Mux.h"
+#include "Game.Avatar.Counters.h"
 #include "Game.Avatar.Statistics.h"
 #include "Game.Statistics.h"
 #include "Visuals.Texts.h"
@@ -14,6 +15,7 @@ namespace state::in_play::Lose
 	const std::string LAYOUT_NAME = "State.InPlay.Lose";
 	const std::string TEXT_CONFIDENCE = "Confidence";
 	const std::string TEXT_DIGNITY = "Dignity";
+	const std::string TEXT_FOUND_CAR = "FoundCar";
 	const std::string SFX_LOSE = "deadhunter";
 
 	static bool OnMouseButtonUp(const common::XY<int>& xy, MouseButton)
@@ -29,6 +31,7 @@ namespace state::in_play::Lose
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CONFIDENCE, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(game::Statistic::CONFIDENCE)));
 		descriptor = game::Statistics::Read(game::Statistic::DIGNITY);
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_DIGNITY, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(game::Statistic::DIGNITY)));
+		visuals::Texts::SetText(LAYOUT_NAME, TEXT_FOUND_CAR, (game::avatar::Counters::IsSet(game::avatar::Counter::FOUND_CAR)) ? ("...but at least you found yer car, dude.") : (""));
 		common::audio::Sfx::Play(SFX_LOSE);
 	}
 

@@ -10,4 +10,6 @@ namespace game::avatar::Counters
 	size_t Read(const Counter&);
 	void Reset(const Difficulty&);
 	void Increment(const Counter&);
+	bool Set(const Counter&);
+	bool IsSet(const Counter&);
 }
