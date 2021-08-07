@@ -13,6 +13,9 @@
 namespace game::Items
 {
 	const std::string SFX_AND_THEN = "andthen";
+	const std::string SFX_ZOLTAN = "zoltan";
+	const std::string SFX_HOT_CHICKS = "hotchicks";
+	const std::string SFX_NORDIC_GUYS = "nordicguys";
 
 	static std::function<void(int)> DoStandardPickUp(const std::string& pickUpMessage, const game::Item& item)
 	{
@@ -39,7 +42,7 @@ namespace game::Items
 
 	static void Zoltan(int)
 	{
-		//TODO: recording of me saying "ZOLTAN!"
+		common::audio::Sfx::Play(SFX_ZOLTAN);
 		game::avatar::Log::Write({ visuals::data::Colors::SUBHEADING, "ZOLTAN!" });
 	}
 
@@ -50,7 +53,8 @@ namespace game::Items
 			application::UIState::Write(::UIState::IN_PLAY_NORDIC_GUYS);
 			return;
 		}
-		//TODO: play sound prompt
+		common::audio::Sfx::Play(SFX_NORDIC_GUYS);
+		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, "We seek the Transfunctioner!" });
 	}
 
 	static void HotChicks(int)
@@ -60,7 +64,10 @@ namespace game::Items
 			application::UIState::Write(::UIState::IN_PLAY_HOT_CHICKS);
 			return;
 		}
-		//TODO: play sound prompt
+		common::audio::Sfx::Play(SFX_HOT_CHICKS);
+		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, "We are not guys. We are hot chicks!" });
+		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, "Give us the Transfunctioner," });
+		game::avatar::Log::Write({ visuals::data::Colors::NORMAL, "and we will reward you with erotic pleasure." });
 	}
 
 	static void InteractFountain(int)

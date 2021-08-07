@@ -2,5 +2,8 @@
   "woohoo": "assets/audio/sfx/woohoo.wav",
   "andthen": "assets/audio/sfx/andthen.wav",
   "deadhunter": "assets/audio/sfx/deadhunter.wav",
-  "exit": "assets/audio/sfx/exit.wav"
+  "exit": "assets/audio/sfx/exit.wav",
+  "zoltan": "assets/audio/sfx/zoltan.wav",
+  "hotchicks": "assets/audio/sfx/hotchicks.wav",
+  "nordicguys": "assets/audio/sfx/nordicguys.wav"
 }
