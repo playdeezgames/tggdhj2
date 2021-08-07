@@ -29,7 +29,7 @@ namespace state::in_play::Win
 
 	static void OnEnter()
 	{
-		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
+		game::audio::Mux::Play(game::audio::Mux::Theme::WIN);
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_EFFECTIVENESS, std::format(FORMAT_EFFECTIVENESS, game::Avatar::GetEffectiveness()));
 		auto descriptor = game::Statistics::Read(game::Statistic::CONFIDENCE);
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CONFIDENCE, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(game::Statistic::CONFIDENCE)));

@@ -1,3 +1,5 @@
 {
-    "main":"assets/audio/mux/song_20210731_102357_228.mid"
+    "main":"assets/audio/mux/song_20210731_102357_228.mid",
+    "lose":"assets/audio/mux/song_20210807_085903_349.mid",
+    "win":"assets/audio/mux/song_20210807_090119_606.mid"
 }

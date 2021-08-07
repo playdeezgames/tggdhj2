@@ -26,7 +26,7 @@ namespace state::in_play::Lose
 
 	static void OnEnter()
 	{
-		game::audio::Mux::Play(game::audio::Mux::Theme::MAIN);
+		game::audio::Mux::Play(game::audio::Mux::Theme::LOSE);
 		auto descriptor = game::Statistics::Read(game::Statistic::CONFIDENCE);
 		visuals::Texts::SetText(LAYOUT_NAME, TEXT_CONFIDENCE, std::format(descriptor.format, game::avatar::Statistics::GetCurrent(game::Statistic::CONFIDENCE)));
 		descriptor = game::Statistics::Read(game::Statistic::DIGNITY);
